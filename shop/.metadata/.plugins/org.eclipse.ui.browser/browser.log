@@ -1,0 +1,18 @@
+
+11월 17, 2020 15:43:36.39 NEW SESSION
+11월 17, 2020 15:43:36.39 [1117/154336.363:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+
+11월 18, 2020 10:01:33.81 NEW SESSION
+11월 18, 2020 10:01:33.81 [14084:3708:1118/100133.806:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+11월 18, 2020 10:01:34.77 [14084:3708:1118/100134.772:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+
+11월 18, 2020 17:36:48.94 NEW SESSION
+11월 18, 2020 17:36:48.94 [9872:12116:1118/173648.921:ERROR:get_updates_processor.cc(257)] PostClientToServerMessage() failed during GetUpdates with error 2
+11월 18, 2020 18:03:45.09 [12632:10272:1118/180345.090:ERROR:get_updates_processor.cc(257)] PostClientToServerMessage() failed during GetUpdates with error 2
+
+11월 20, 2020 16:10:03.19 NEW SESSION
+11월 20, 2020 16:10:03.19 [1120/161003.178:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+11월 20, 2020 17:04:45.91 [19540:11296:1120/170445.916:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+11월 20, 2020 17:26:14.74 [19540:11296:1120/172614.743:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+11월 20, 2020 18:46:06.03 [6888:14728:1120/184606.035:ERROR:CONSOLE(0)] "Failed to launch 'transition:%20all%200.1s%20ease-in-out;' because the scheme does not have a registered handler.", source: chrome://new-tab-page/ (0)
+11월 20, 2020 19:42:32.09 [1120/194232.090:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
