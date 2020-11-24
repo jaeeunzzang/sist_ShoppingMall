@@ -36,13 +36,11 @@
 			value="WEB-INF/Config.xml"></beans:property>
 	</beans:bean>
 
-	<beans:bean id="springMemberDao"
-		class="sist.com.dao.SpringBoardDao">
+	<beans:bean id="BoardDao" class="shop.com.dao.BoardDao">
 		<beans:property name="sqlSessionFactory" ref="ssf"></beans:property>
 	</beans:bean>
 	<beans:bean id="download"
-		class="sist.com.app.dto.DownloadView">
-
+		class="shop.com.app.dto.DownloadView">
 	</beans:bean>
 
 	<beans:bean
@@ -69,7 +67,5 @@
 		base-package="shop.com.dao" />
 	<context:component-scan
 		base-package="shop.com.dto" />
-
-
 
 </beans:beans>
