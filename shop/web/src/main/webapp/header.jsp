@@ -30,7 +30,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<nav class="nav">
 					<span>
-						<a class="nav-link" href="#">LOGIN</a>
+						<a class="nav-link" href="SignIn2.jsp">LOGIN</a>
 						<a class="nav-link" href="#">MY PAGE</a>
 						<a class="nav-link" href="#">CUSTOMER SERVICE</a>
 						<a class="nav-link" href="#">
