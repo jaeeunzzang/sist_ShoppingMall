@@ -5,11 +5,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration><!-- DB설정(Connection) -->
 
 	<typeAliases>
-		<typeAlias type="shop.com.app.dto.Member" alias="member" />
+		<typeAlias type="shop.com.app.dto.NoticeBean" alias="notice" />
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="shop/com/dao/shop-mapper.xml" />
+		<mapper resource="shop/com/dao/board-mapper.xml" />
 
 	</mappers>
 </configuration>
