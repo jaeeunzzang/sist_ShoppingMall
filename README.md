@@ -1,5 +1,4 @@
-* **git status -> 현재 상태 **
-:+1:
+* **git status -> 현재 상태**    :+1:
 * git branch ->현재 작업중인 branch 
 ->커밋이 저장될 곳
 * git checkout 브랜치이름 ->branch 선택
