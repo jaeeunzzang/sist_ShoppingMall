@@ -6,16 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
-<link href="/web/shop/css/kfonts2.css" rel="stylesheet">
-<link href="/web/shop/css/maincss.css" rel="stylesheet">
+<link href="css/maincss.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/web/shop/css/bootstrap.min.js"></script>
+<script src="/web/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		$("button#list").click(function() {
+			document.location.href = 'notice.do';
+		});
 	});
 </script>
 
@@ -41,26 +41,18 @@
 									<td>
 										<form role="form" class="form-inline">
 											<div class="form-group">
-												<!-- <select class="form-control">
-		        									<option selected>공지유형</option>
-		        									<option>배송공지</option>
-		        									<option>상품공지</option>
-		        									<option>기타공지</option>
-		      									</select>      -->
-												<input type="text" class="form-control" placeholder="제목을 입력해주세요" style="width: 945px">
+												<p>${noticeInfo.n_title}</p>
 											</div>
 										</form>
 									</td>
+									<td><p align="center">${noticeInfo.n_regdate}</p></td>
 								</tr>
 								<tr>
-									<td colspan="2"><textarea rows="12" class="form-control" placeholder="내용을 입력해주세요"></textarea></td>
+									<td colspan="3"><p align="center" style="padding-top: 50px; padding-bottom: 50px;">${noticeInfo.n_contents}</p></td>
 								</tr>
 							</table>
 						</div>
-						<button type="button" class="btn btn-default btn-s">목록</button>
-						<form role="form" class="form-inline pull-right">
-							<button type="button" class="btn btn-default btn-s">등록</button>
-						</form>
+						<button type="button" class="btn btn-default btn-s" id="list">목록</button>
 					</div>
 				</div>
 			</div>

@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/maincss.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -48,26 +47,18 @@
 					<thead>
 						<tr>
 							<th class="text-center">NO</th>
-							<th class="text-center">SUBJECT</th>
+							<th class="text-center">TITLE</th>
 							<th class="text-center">NAME</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th class="text-center">1</th>
-							<th>배송 안내</th>
-							<th class="text-center">ADMIN</th>
-						</tr>
-						<tr>
-							<th class="text-center">2</th>
-							<th>결제 안내</th>
-							<th class="text-center">ADMIN</th>
-						</tr>
-						<tr>
-							<th class="text-center">3</th>
-							<th>상담 안내</th>
-							<th class="text-center">ADMIN</th>
-						</tr>
+						<c:forEach var="i" items="${notice}">
+							<tr>
+								<th class="text-center">${i.n_no}</th>
+								<th><a href="noticeInfo.do?n_no=${i.n_no}">${i.n_title}</a></th>
+								<th class="text-center">ADMIN</th>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 

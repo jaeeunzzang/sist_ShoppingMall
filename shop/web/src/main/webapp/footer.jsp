@@ -36,10 +36,12 @@
 				<tr>
 					<td rowspan="2"><b>1661-2811</b></td>
 					<td>우리은행 1002-703-294024</td>
-					<td rowspan="2"><a href="#"> <img alt=".." src="img/korea-flag.png">한국어
-					</a></td>
-					<td rowspan="2"><a href="#"> <img alt=".." src="img/facebook.png">페이스북
-					</a></td>
+					<td rowspan="2"><a href="#">
+							<img alt=".." src="img/korea-flag.png">한국어
+						</a></td>
+					<td rowspan="2"><a href="#">
+							<img alt=".." src="img/facebook.png">페이스북
+						</a></td>
 				</tr>
 				<tr>
 					<td>국민은행 431801-01-213327</td>
@@ -47,30 +49,36 @@
 				<tr>
 					<td>평일 : 10:00 - 17:00</td>
 					<td>농 협 352-4175-4369-13</td>
-					<td><a href="#"> <img alt=".." src="img/american-flag.png">English
-					</a></td>
-					<td rowspan="2"><a href="#"> <img alt=".." src="img/instagram.png">인스타그램
-					</a></td>
+					<td><a href="#">
+							<img alt=".." src="img/american-flag.png">English
+						</a></td>
+					<td rowspan="2"><a href="https://www.instagram.com/jan_kawai/">
+							<img alt=".." src="img/instagram.png">인스타그램
+						</a></td>
 				</tr>
 				<tr>
 					<td>점심 : 12:30 - 14:00</td>
 					<td>(주)싸용쌍용</td>
-					<td rowspan="2"><a href="#"> <img alt=".." src="img/china-flag.png">Chinese
-					</a></td>
+					<td rowspan="2"><a href="#">
+							<img alt=".." src="img/china-flag.png">Chinese
+						</a></td>
 				</tr>
 				<tr>
 					<td rowspan="3">토/일요일 및 공휴일은 휴무입니다.</td>
 				</tr>
 				<tr>
 					<td>입금자명 불일치시 자동연동이 되지않습니다.</td>
-					<td><a href="#"> <img alt=".." src="img/japan-flag.png">Japanese
-					</a></td>
-					<td><a href="#"> <img alt=".." src="img/youtube.png">유튜브
-					</a></td>
+					<td><a href="#">
+							<img alt=".." src="img/japan-flag.png">Japanese
+						</a></td>
+					<td><a href="https://www.youtube.com/watch?v=9KlgvMXur_8">
+							<img alt=".." src="img/youtube.png">유튜브
+						</a></td>
 				</tr>
 				<tr>
-					<td>고객센터 또는 <a href="#"> <b>Q&A</b>
-					</a> 문의주세요.
+					<td>고객센터 또는 <a href="#">
+							<b>Q&A</b>
+						</a> 문의주세요.
 					</td>
 				</tr>
 			</tbody>

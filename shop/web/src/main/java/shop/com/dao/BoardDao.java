@@ -7,7 +7,7 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import shop.com.app.dto.Product;
+import shop.com.app.dto.NoticeBean;
 
 @Repository
 public class BoardDao extends SqlSessionDaoSupport {
@@ -18,9 +18,13 @@ public class BoardDao extends SqlSessionDaoSupport {
 		super.setSqlSessionFactory(sqlSessionFactory);
 	}
 
-	public List<Product> selectProduct() {
-		List<Product> list = null;
-		list = this.getSqlSession().selectList("");
-		return list;
+	public List<NoticeBean> selectNotice() {
+		return this.getSqlSession().selectList("selectNotice");
+	}
+
+	public NoticeBean selectNoticeInfo(int n_no) {
+		NoticeBean notice = null;
+		notice = this.getSqlSession().selectOne("selectNoticeInfo", n_no);
+		return notice;
 	}
 }

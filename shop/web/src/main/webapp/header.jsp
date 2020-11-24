@@ -44,7 +44,7 @@
 					<nav class="nav">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="SignIn2.jsp">LOGIN</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">MY PAGE</a></li>
+							<li class="nav-item"><a class="nav-link" href="myPage.jsp">MY PAGE</a></li>
 							<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
 									id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="true"> CUSTOMER SERVICE </a>
@@ -53,9 +53,9 @@
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">QNA</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">NOTICE</a>
+									<a class="dropdown-item" href="notice.do">NOTICE</a>
 								</div></li>
-							<li class="nav-item"><a class="nav-link" href="#">
+							<li class="nav-item"><a class="nav-link" href="cart.jsp">
 									<img alt="" src="img/cart.png" width="30px;">CART
 								</a></li>
 						</ul>

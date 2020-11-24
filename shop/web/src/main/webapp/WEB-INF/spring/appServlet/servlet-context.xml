@@ -36,9 +36,10 @@
 			value="WEB-INF/Config.xml"></beans:property>
 	</beans:bean>
 
-	<beans:bean id="BoardDao" class="shop.com.dao.BoardDao">
+	<beans:bean id="boardDao" class="shop.com.dao.BoardDao">
 		<beans:property name="sqlSessionFactory" ref="ssf"></beans:property>
 	</beans:bean>
+
 	<beans:bean id="download"
 		class="shop.com.app.dto.DownloadView">
 	</beans:bean>
@@ -62,10 +63,10 @@
 	</beans:bean>
 
 	<context:component-scan
-		base-package="shop.com.web" />
+		base-package="shop.com.bbs" />
 	<context:component-scan
 		base-package="shop.com.dao" />
 	<context:component-scan
-		base-package="shop.com.dto" />
+		base-package="shop.com.app.dto" />
 
 </beans:beans>
