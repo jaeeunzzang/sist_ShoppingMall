@@ -235,9 +235,9 @@
                            placeholder="Your password"> 
                         <div class="submit-wrap">
                            <input type="submit" value="Sign in" class="submit">
+                           <input type="button" id="signUp" value="회원가입" class="submit">
                            <a href="FindPW.jsp" class="more">Forgot your password</a>
                            <a href="FindId.jsp" class="more">or id?</a>
-                           <input type="submit" value="회원가입" class="submit">
                         </div>
                      </form>
                   </div>
@@ -255,7 +255,11 @@
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script type="text/javascript">
-      
+      $(function(){
+    	  $("#signUp").click(function(){
+    		  document.location.href="SignUp.jsp";
+    	  });
+      });
    </script>
 </body>
 </html>
