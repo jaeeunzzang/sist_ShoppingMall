@@ -32,8 +32,7 @@
 						<option>제목</option>
 						<option>내용</option>
 						<option>글쓴이</option>
-					</select>
-					<input type="text" class="form-control input-s">
+					</select> <input type="text" class="form-control input-s">
 					<button type="button" class="btn btn-default btn-s">찾기</button>
 				</form>
 				<br>
@@ -74,13 +73,15 @@
 
 				<div class="text-center">
 					<ul class="pagination">
-						<li class="disabled"><a href="#"> <span>«</span>
-						</a></li>
+						<li class="disabled"><a href="#">
+								<span>«</span>
+							</a></li>
 						<li><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
-						<li><a href="#"> <span>»</span>
-						</a></li>
+						<li><a href="#">
+								<span>»</span>
+							</a></li>
 					</ul>
 				</div>
 			</div>
