@@ -4,6 +4,7 @@
 * git checkout 브랜치이름 ->branch 선택
 
 * git add * ->전체를 커밋에 add
+  -git add *.확장자명 -> 특정확장자만 add
 * git commit -m "커밋메시지"  
 
 * git push origin HEAD
