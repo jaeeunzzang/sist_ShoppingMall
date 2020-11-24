@@ -15,6 +15,6 @@ branch가 없으면 만들어준다
 * git pull --rebase ->원격에서 최신코드 받아와서 병합
 * git fetch->원격에서 최신코드 받아오기(refresh)
 * git clone -b new_branch [url] ->특정 브랜치
-https://github.com/jaeeunzzang/sist_ShoppingMall.git->경로
+* https://github.com/jaeeunzzang/sist_ShoppingMall.git->경로
 
 *  :wq 저장하고나가기
