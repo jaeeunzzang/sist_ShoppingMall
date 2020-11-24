@@ -26,7 +26,7 @@
 <body>
 	<div class="header" id="header">
 		<div class="container">
-			<a class="navbar-brand" href="/web/shop/mainPage/index.html">NONAME</a>
+			<a class="navbar-brand" href="mainPage/index.html">NONAME</a>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<nav class="nav">
 					<span>
