@@ -1,10 +1,10 @@
-* git status -> 현재 상태 
+* **git status -> 현재 상태 **
 * git branch ->현재 작업중인 branch 
 ->커밋이 저장될 곳
 * git checkout 브랜치이름 ->branch 선택
 
 * git add * ->전체를 커밋에 add
-  -git add *.확장자명 -> 특정확장자만 add
+  + git add *.확장자명 -> 특정 확장자만 전부 add
 * git commit -m "커밋메시지"  
 
 * git push origin HEAD
