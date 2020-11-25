@@ -35,4 +35,8 @@ public class BoardDao extends SqlSessionDaoSupport {
 	public void insertNotice(NoticeBean notice) {
 		this.getSqlSession().insert("insertNotice", notice);
 	}
+
+	public void deleteNotice(int n_no) {
+		this.getSqlSession().delete("deleteNotice", n_no);
+	}
 }

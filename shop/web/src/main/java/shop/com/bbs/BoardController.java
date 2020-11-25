@@ -52,4 +52,10 @@ public class BoardController {
 		dao.insertNotice(notice);
 		return "redirect:noticeList.do";
 	}
+
+	@RequestMapping(value = "noticeDelete.do")
+	public String noticeDeleteAction(int n_no) {
+		dao.deleteNotice(n_no);
+		return "redirect:noticeList.do";
+	}
 }

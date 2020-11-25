@@ -16,7 +16,13 @@
 		$("button#list").click(function() {
 			document.location.href = 'noticeList.do';
 		});
-
+		$("button#del").click(function() {
+			var confirm_test = confirm("정말로 삭제하시겠습니까?");
+			if (confirm_test == true) {
+				alert("삭제되었습니다.");
+				document.location.href = 'noticeDelete.do?n_no='+ ${noticeInfo.n_no};
+			}
+		});
 	});
 </script>
 
@@ -56,6 +62,7 @@
 						<form role="form" class="form-inline pull-right">
 							<button type="button" class="btn btn-default btn-s"
 								onclick="location.href='noticeMod.do?n_no=${noticeInfo.n_no}&job=mod'">수정</button>
+							<button type="button" class="btn btn-default btn-s" id="del">삭제</button>
 							<button type="button" class="btn btn-default btn-s" id="list">목록</button>
 						</form>
 					</div>
