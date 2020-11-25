@@ -98,10 +98,12 @@
 														name="n_contents" id="mod_contents">${noticeMod.n_contents}</textarea></td>
 											</tr>
 										</table>
-										<button type="button" class="btn btn-default btn-s" id="mod">수정</button>
-										<a href="noticeList.do">
-											<button type="button" class="btn btn-default btn-s">목록</button>
-										</a>
+										<div align="right">
+											<button type="button" class="btn btn-default btn-s" id="mod">수정</button>
+											<a href="noticeList.do">
+												<button type="button" class="btn btn-default btn-s">목록</button>
+											</a>
+										</div>
 									</form>
 								</c:otherwise>
 							</c:choose>
