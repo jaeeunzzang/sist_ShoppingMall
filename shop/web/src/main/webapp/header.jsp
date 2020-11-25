@@ -49,8 +49,6 @@
 									id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="true"> CUSTOMER SERVICE </a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="boardList.jsp">LIST</a>
-									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">REVIEW</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">QNA</a>

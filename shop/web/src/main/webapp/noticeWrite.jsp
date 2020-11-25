@@ -6,21 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
-<link href="/web/shop/css/kfonts2.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/maincss.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/web/shop/css/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("button#save").click(function() {
-			document.location.href = 'noticeInsert.do';
-		});
-		$("button#mod").click(function() {
-			document.location.href = 'noticeUpdate.do';
-		});
+		$("button#save").click(
+				function() {
+					if ($("input#new_title").val() == 0
+							|| $("textarea#new_contents").val() == 0) {
+						alert("data check");
+						return false;
+					}
+					$("form#newFrm").submit();
+				});
+
+		$("button#mod").click(
+				function() {
+					if ($("input#mod_title").val() == 0
+							|| $("textarea#mod_contents").val() == 0) {
+						alert("data check");
+						return false;
+					}
+					$("form#modFrm").submit();
+				});
 	});
 </script>
 
@@ -38,7 +50,7 @@
 						<div class="table-responsive">
 							<c:choose>
 								<c:when test="${job eq 'new'}">
-									<form action="noticeInsert.do">
+									<form action="noticeInsert.do" method="post" id="newFrm">
 										<table class="table table-bordered">
 											<colgroup>
 												<col width="100" />
@@ -48,17 +60,16 @@
 												<td class="text-center">제목</td>
 												<td>
 													<div class="form-group">
-														<input type="text" class="form-control" placeholder="제목을 입력해주세요" style="width: 945px">
+														<input type="text" name="n_title" id="new_title" class="form-control"
+															placeholder="제목을 입력해주세요" style="width: 945px">
 													</div>
 												</td>
 											</tr>
 											<tr>
 												<td colspan="2"><textarea rows="12" class="form-control text-center"
-														placeholder="내용을 입력해주세요"></textarea></td>
+														placeholder="내용을 입력해주세요" name="n_contents" id="new_contents"></textarea></td>
 											</tr>
 										</table>
-									</form>
-									<form role="form" class="form-inline pull-right">
 										<button type="button" class="btn btn-default btn-s" id="save">등록</button>
 										<a href="noticeList.do">
 											<button type="button" class="btn btn-default btn-s">목록</button>
@@ -66,7 +77,7 @@
 									</form>
 								</c:when>
 								<c:otherwise>
-									<form action="noticeInsert.do">
+									<form action="noticeUpdate.do" method="post" id="modFrm">
 										<table class="table table-bordered">
 											<colgroup>
 												<col width="100" />
@@ -76,17 +87,17 @@
 												<td class="text-center">제목</td>
 												<td>
 													<div class="form-group">
-														<input type="text" class="form-control" value="${noticeMod.n_title}"
-															style="width: 945px">
+														<input type="text" class="form-control" name="n_title" id="mod_title"
+															value="${noticeMod.n_title}" style="width: 945px">
+														<input type="hidden" name="n_no" value="${noticeMod.n_no}">
 													</div>
 												</td>
 											</tr>
 											<tr>
-												<td colspan="2"><textarea rows="12" class="form-control text-center">${noticeMod.n_contents}</textarea></td>
+												<td colspan="2"><textarea rows="12" class="form-control text-center"
+														name="n_contents" id="mod_contents">${noticeMod.n_contents}</textarea></td>
 											</tr>
 										</table>
-									</form>
-									<form role="form" class="form-inline pull-right">
 										<button type="button" class="btn btn-default btn-s" id="mod">수정</button>
 										<a href="noticeList.do">
 											<button type="button" class="btn btn-default btn-s">목록</button>
