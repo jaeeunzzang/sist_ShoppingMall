@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectReviewInfo" parameterType="java.lang.Integer"
 		resultType="review">
 		SELECT
-		R_NO,REVIEW.P_NO,P_NAME,R_TITLE,R_CONTENTS,R_REGDATE,R_FILENAME
+		R_NO,M_ID,REVIEW.P_NO,P_NAME,R_TITLE,R_CONTENTS,R_REGDATE,R_FILENAME
 		FROM
 		REVIEW,PRODUCT WHERE REVIEW.P_NO=PRODUCT.P_NO AND R_NO=#{r_no}
 	</select>

@@ -49,9 +49,9 @@
 									id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="true"> CUSTOMER SERVICE </a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="#">REVIEW</a>
+									<a class="dropdown-item" href="reviewList.do">REVIEW</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">QNA</a>
+									<a class="dropdown-item" href="qnaList.do">QNA</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="noticeList.do">NOTICE</a>
 								</div></li>
