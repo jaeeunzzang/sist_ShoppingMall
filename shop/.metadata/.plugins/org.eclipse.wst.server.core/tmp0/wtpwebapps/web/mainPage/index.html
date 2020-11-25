@@ -23,7 +23,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">NONAME</a>
+			<a class="navbar-brand" href="index.html">NONAME</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
 				aria-label="Toggle navigation">
@@ -31,13 +31,21 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="#">
+					<li class="nav-item"><a class="nav-link" href="/web/SignIn2.jsp">
 							LOGIN
 							<span class="sr-only">(current)</span>
 						</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">MY PAGE</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">CUSTOMER SERVICE</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">
+					<li class="nav-item"><a class="nav-link" href="../myPage.jsp">MY PAGE</a></li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> CUSTOMER SERVICE </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">REVIEW</a>
+							<a class="dropdown-item" href="#">QNA</a>
+							<a class="dropdown-item" href="/web/noticeList.do">NOTICE</a>
+							<!-- 얘가 다른폴더안에 들어있어서 /web/ 해줘야 제대로 경로 찾아간다. -->
+						</div></li>
+					<li class="nav-item"><a class="nav-link" href="../cart.jsp">
 							<img alt="" src="img/cart.png" width="30px;">CART
 						</a></li>
 				</ul>
@@ -53,7 +61,7 @@
 			<div class="col-lg-3">
 
 				<h1 class="my-4">
-					<img src="img/mainBanner.jpg" width="250px;">
+					<img src="img/logo_noname.jpg" width="250px;">
 				</h1>
 				<div class="list-group">
 					<a href="#" class="list-group-item">OUTER</a>
@@ -104,7 +112,7 @@
 							</a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#">뭐시껭폴라니트</a>
+									<a href="../productDetail.jsp">뭐시껭폴라니트</a>
 								</h4>
 								<h5>75,000</h5>
 								<p class="card-text">겨울에는목폴라가따듯해용 ㅇㅇ엫 목에깁스한거같지만~!~!</p>
