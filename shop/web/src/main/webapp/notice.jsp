@@ -55,9 +55,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="i" items="${notice}">
+						<c:forEach var="i" items="${notice}" varStatus="cnt">
 							<tr>
-								<th class="text-center">${i.n_no}</th>
+								<th class="text-center">${cnt.count}</th>
 								<th><a href="noticeInfo.do?n_no=${i.n_no}">${i.n_title}</a></th>
 								<th class="text-center">ADMIN</th>
 							</tr>

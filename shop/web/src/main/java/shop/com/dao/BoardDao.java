@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import shop.com.app.dto.NoticeBean;
+import shop.com.app.dto.ReviewBean;
 
 @Repository
 public class BoardDao extends SqlSessionDaoSupport {
@@ -38,5 +39,27 @@ public class BoardDao extends SqlSessionDaoSupport {
 
 	public void deleteNotice(int n_no) {
 		this.getSqlSession().delete("deleteNotice", n_no);
+	}
+
+	public List<ReviewBean> selectReview() {
+		return this.getSqlSession().selectList("selectReview");
+	}
+
+	public ReviewBean selectReviewInfo(int r_no) {
+		ReviewBean review = null;
+		review = this.getSqlSession().selectOne("selectReviewInfo", r_no);
+		return review;
+	}
+
+	public void insertReview(ReviewBean review) {
+		this.getSqlSession().insert("insertReview", review);
+	}
+
+	public void updateReview(ReviewBean review) {
+		this.getSqlSession().update("updateReview", review);
+	}
+
+	public void deleteReview(int r_no) {
+		this.getSqlSession().delete("deleteReview", r_no);
 	}
 }
