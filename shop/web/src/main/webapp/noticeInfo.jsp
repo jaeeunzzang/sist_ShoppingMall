@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/maincss.css" rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>	
 <script src="/web/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -48,11 +48,28 @@
 									<td><p align="center">${noticeInfo.n_regdate}</p></td>
 								</tr>
 								<tr>
-									<td colspan="3"><p align="center" style="padding-top: 50px; padding-bottom: 50px;">${noticeInfo.n_contents}</p></td>
+									<td class="text-center" >이름</td>
+									<td>
+										<form role="form" class="form-inline">
+											<div class="form-group">				           		        								
+		        								NONAME							        							
+		    									</div> 
+										</form>
+									</td>
+								</tr>
+								<tr>
+									<<td colspan="2"><textarea rows="12" class="form-control text-center" text-center>${noticeInfo.n_contents}</textarea></td>
+								</tr>
+								<tr>
+									<td class="text-center">첨부파일</td>
+									<td><input type="file"></td>
 								</tr>
 							</table>
 						</div>
-						<button type="button" class="btn btn-default btn-s" id="list">목록</button>
+						<form role="form" class="form-inline pull-right">
+							<a href="noticeModify.jsp"><button type="button" class="btn btn-default btn-s">수정</button></a>
+							<a href="notice.jsp"><button type="button" class="btn btn-default btn-s">목록</button></a>
+						</form>
 					</div>
 				</div>
 			</div>
