@@ -46,29 +46,15 @@
 										</form>
 									</td>
 									<td><p align="center">${noticeInfo.n_regdate}</p></td>
-								</tr>
+								</tr>							
 								<tr>
-									<td class="text-center" >이름</td>
-									<td>
-										<form role="form" class="form-inline">
-											<div class="form-group">				           		        								
-		        								NONAME							        							
-		    									</div> 
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<<td colspan="2"><textarea rows="12" class="form-control text-center" text-center>${noticeInfo.n_contents}</textarea></td>
-								</tr>
-								<tr>
-									<td class="text-center">첨부파일</td>
-									<td><input type="file"></td>
-								</tr>
+									<td colspan="3"><textarea rows="12" class="form-control text-center">${noticeInfo.n_contents}</textarea></td>
+								</tr>			
 							</table>
 						</div>
 						<form role="form" class="form-inline pull-right">
 							<a href="noticeModify.jsp"><button type="button" class="btn btn-default btn-s">수정</button></a>
-							<a href="notice.jsp"><button type="button" class="btn btn-default btn-s">목록</button></a>
+							<button type="button" class="btn btn-default btn-s" id="list">목록</button></a>
 						</form>
 					</div>
 				</div>
