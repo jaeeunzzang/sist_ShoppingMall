@@ -1,7 +1,7 @@
-* **mainPage폴더에 있는 index만 경로설정 /web/ 붙여서**
-**나머지는 /web/shop/ ~~ 잡다한거 다 붙일필요없이** 
-  **- img/cat.jpg**
-  **- action.do **
+* **mainPage폴더에 있는 index만 경로설정 /web/ 붙여서**         
+  **나머지는 /web/shop/ ~~ 잡다한거 다 붙일필요없이**              
+  **- img/cat.jpg**         
+  **- action.do**       
   
 * * *
 * **git status -> 현재 상태**    :+1:
