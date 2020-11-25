@@ -53,13 +53,24 @@
 									</td>
 								</tr>
 								<tr>
+									<td class="text-center" >이름</td>
+									<td>
+										<input type="text" class="form-control" placeholder="이름을 입력해주세요" style="width: 160px">
+									</td>
+								</tr>
+								<tr>
 									<td colspan="2"><textarea rows="12" class="form-control" placeholder="내용을 입력해주세요"></textarea></td>
+								</tr>
+								<tr>
+									<td class="text-center">첨부파일</td>
+									<td><input type="file"></td>
 								</tr>
 							</table>
 						</div>
 						<button type="button" class="btn btn-default btn-s">목록</button>
 						<form role="form" class="form-inline pull-right">
 							<button type="button" class="btn btn-default btn-s">등록</button>
+							<a href="notice.jsp"><button type="button" class="btn btn-default btn-s">목록</button></a>
 						</form>
 					</div>
 				</div>
