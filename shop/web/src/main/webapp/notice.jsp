@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/maincss.css" rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link href="/web/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>	
 <script src="/web/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -30,7 +30,7 @@
 					<select class="form-control">
 						<option>제목</option>
 						<option>내용</option>
-						<option>글쓴이</option>
+						<option>이름</option>
 					</select> <input type="text" class="form-control input-s">
 					<button type="button" class="btn btn-default btn-s">찾기</button>
 				</form>
