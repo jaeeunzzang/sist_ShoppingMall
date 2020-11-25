@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <link href="/web/css/bootstrap.min.css" rel="stylesheet">
 <link href="/web/css/kfonts2.css" rel="stylesheet">
-<link href="css/maincss.css" rel="stylesheet">
+<link href="/web/shop/css/maincss.css" rel="stylesheet">
 <style>
 #memberInfoMod {
 	font-family: 'Lato', sans-serif;
@@ -192,12 +192,46 @@
 						</table>
 					</div>
 					<div class="submit-wrap" align="center">
-						<input type="submit" value="정보수정" class="submit" style="width: 30%; height: 42px;"> <input
-							type="submit" value="회원탈퇴" class="submit" style="width: 30%; height: 42px;">
+						<input type="submit" value="정보수정" class="submit" style="width: 30%; height: 42px;">
+						<input type="button" value="회원탈퇴" style="width: 30%; height: 42px;" data-toggle="modal" data-target="#myModal">						
 					</div>
 					<br>
 			</div>
 		</div>
+		
+		<!-- 회원탈퇴 Modal -->
+			<div class="modal" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">회원탈퇴</h4>
+						</div>
+						<div class="modal-body">
+							<p class="ptitle">탈퇴하면 현재 적립금 OOO이 소멸됩니다.</p><br>
+							<p>회원탈퇴사유</p>
+							<select class="form-control">
+								<option selected>- 선택해주세요 -</option>
+								<option>상품종류가 부족하다</option>
+								<option>상품가격이 비싸다</option>
+								<option>상품가격에 비해 품질이 떨어진다.</option>
+								<option>배송이 느리다</option>
+								<option>이용빈도가 낮다</option>
+								<option>개인정보 유출이 우려된다</option>
+								<option>기타</option>
+							</select>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary">탈퇴하기</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">취소하기</button>
+						</div>
+					</div>
+				</div>
+			</div> <!--Modal -->
+		
 		<div>
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>

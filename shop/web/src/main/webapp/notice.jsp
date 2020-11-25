@@ -7,13 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/maincss.css" rel="stylesheet">
-<link href="/web/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>	
-<script src="/web/js/bootstrap.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		$("button#write").click(function() {
+			document.location.href = 'noticeWrite.do?job=new';
+		});
 	});
 </script>
 
@@ -38,6 +40,7 @@
 				<br>
 				<br>
 				<br>
+
 				<table class="table table-hover">
 					<colgroup>
 						<col width="50" />
@@ -62,6 +65,9 @@
 					</tbody>
 				</table>
 
+				<p align="right">
+					<button type="button" class="btn btn-default btn-s" id="write">글쓰기</button>
+				</p>
 				<div class="text-center">
 					<ul class="pagination">
 						<li class="disabled"><a href="#">

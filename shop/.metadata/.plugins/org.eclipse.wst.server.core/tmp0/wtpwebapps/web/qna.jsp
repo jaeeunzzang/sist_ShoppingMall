@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/css/bootstrap.min.css" rel="stylesheet">
-<link href="/web/css/kfonts2.css" rel="stylesheet">
-<link href="css/maincss.css" rel="stylesheet">
+<link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
+<link href="/web/shop/css/kfonts2.css" rel="stylesheet">
+<link href="/web/shop/css/maincss.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/web/js/bootstrap.min.js"></script>
+<script src="/web/shop/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -32,11 +32,11 @@
 					<select class="form-control">
 						<option>제목</option>
 						<option>내용</option>
-						<option>글쓴이</option>
+						<option>이름</option>
 						<option>아이디</option>
 					</select> <input type="text" class="form-control input-s">
 					<button type="button" class="btn btn-default btn-s">찾기</button>
-					<button type="button" class="btn btn-default btn-s">글쓰기</button>
+					<a href="qnaWrite.jsp"><button type="button" class="btn btn-default btn-s">글쓰기</button></a>
 				</form>
 				<br>
 				<br>
@@ -64,8 +64,8 @@
 					<tbody>
 						<tr>
 							<th class="text-center">1</th>
-							<th class="text-center"><img src="img/trouser.jpg" /></th>
-							<th>상품문의 <img class="reImg" src="img/lock.png"></th>
+							<th class="text-center"><img src="/web/shop/img/trouser.jpg" /></th>
+							<th><a href="qnaInfo.jsp">[상품문의] 사이즈가 궁금해요! <img class="reImg" src="/web/shop/img/lock.png"></a></th>
 							<th class="text-center">강***</th>
 							<th class="text-center">2020-11-20</th>
 							<th class="text-center">7</th>
@@ -73,16 +73,16 @@
 						<tr>
 							<th class="text-center">2</th>
 							<th></th>
-							<th><img class="reImg" src="img/re.png"> 상품문의 <img class="reImg"
-								src="img/lock.png"></th>
-							<th class="text-center">쇼핑몰이름</th>
+							<th><img class="reImg" src="/web/shop/img/re.png">[RE] 사이즈가 궁금해요! <img class="reImg"
+								src="/web/shop/img/lock.png"></th>
+							<th class="text-center">NONAME</th>
 							<th class="text-center">2020-11-20</th>
 							<th class="text-center">1</th>
 						</tr>
 						<tr>
 							<th class="text-center">3</th>
-							<th class="text-center"><img src="img/e.jpg" /></th>
-							<th>배송문의 <img class="reImg" src="img/lock.png"></th>
+							<th class="text-center"><img src="/web/shop/img/e.jpg" /></th>
+							<th>[배송문의] 배송문의 드려요~ <img class="reImg" src="/web/shop/img/lock.png"></th>
 							<th class="text-center">김***</th>
 							<th class="text-center">2020-11-20</th>
 							<th class="text-center">7</th>
@@ -90,9 +90,9 @@
 						<tr>
 							<th class="text-center">4</th>
 							<th></th>
-							<th><img class="reImg" src="img/re.png"> 배송문의 <img class="reImg"
-								src="img/lock.png"></th>
-							<th class="text-center">쇼핑몰이름</th>
+							<th><img class="reImg" src="/web/shop/img/re.png"> [RE] 배송문의 드려요~<img class="reImg"
+								src="/web/shop/img/lock.png"></th>
+							<th class="text-center">NONAME</th>
 							<th class="text-center">2020-11-20</th>
 							<th class="text-center">1</th>
 						</tr>

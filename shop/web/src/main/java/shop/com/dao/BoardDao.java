@@ -27,4 +27,12 @@ public class BoardDao extends SqlSessionDaoSupport {
 		notice = this.getSqlSession().selectOne("selectNoticeInfo", n_no);
 		return notice;
 	}
+
+	public void updateNotice(NoticeBean notice) {
+		this.getSqlSession().update("updateNotice", notice);
+	}
+
+	public void insertNotice(NoticeBean notice) {
+		this.getSqlSession().insert("insertNotice", notice);
+	}
 }
