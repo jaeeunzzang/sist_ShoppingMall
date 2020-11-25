@@ -7,6 +7,7 @@
 * * *
 * git add * ->전체를 커밋에 add
   + git add *.확장자명 -> 특정 확장자만 전부 add
+* git add . ->전체를 커밋에 add (*랑 . 둘 중에 편한걸로 쓰기~)
 * git commit -m "커밋메시지"  
 * * *
 * git push origin HEAD
