@@ -14,6 +14,8 @@
 **branch가 없으면 만들어준다**
 * git push -u origin jaeeun
  ->원격저장소 정보 저장
+* git branch --set-upstream-to=origin/Main [로컬브랜치]
+ ->로컬브랜치가 원격저장소 Main을 트랙킹한다.
 * * *
 * git pull --rebase ->원격에서 최신코드 받아와서 **병합**
 * git fetch->원격에서 최신코드 받아오기(refresh)
