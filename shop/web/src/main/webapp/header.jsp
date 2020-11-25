@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/css/bootstrap.min.css" rel="stylesheet">
-<link href="/web/css/kfonts2.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/maincss.css" rel="stylesheet">
 <style type="text/css">
 #header .nav {
@@ -25,6 +24,7 @@
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 </style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/web/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -49,11 +49,13 @@
 									id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="true"> CUSTOMER SERVICE </a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="boardList.jsp">LIST</a>
+									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">REVIEW</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">QNA</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="notice.do">NOTICE</a>
+									<a class="dropdown-item" href="noticeList.do">NOTICE</a>
 								</div></li>
 							<li class="nav-item"><a class="nav-link" href="cart.jsp">
 									<img alt="" src="img/cart.png" width="30px;">CART

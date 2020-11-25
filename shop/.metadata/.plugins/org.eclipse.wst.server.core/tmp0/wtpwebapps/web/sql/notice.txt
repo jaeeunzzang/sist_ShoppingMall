@@ -1,0 +1,10 @@
+select * from notice;
+alter table notice drop column m_id;
+
+INSERT INTO NOTICE VALUES(1,'공지사항1','연말 택배 몰림으로 인해 배송이 지연됩니다','2020/11/12');
+INSERT INTO NOTICE VALUES(2,'공지사항2','50,000원 이상 주문시 무료배송 이벤트!','2020/11/11');
+INSERT INTO NOTICE VALUES(3,'공지사항3','빼빼로데이 랜덤박스 안내','2020/11/07');
+
+create sequence notice_seq;
+
+SELECT N_NO,N_TITLE,N_CONTENTS,TO_CHAR(N_REGDATE,'YYYY/MM/DD')N_REGDATE FROM NOTICE;

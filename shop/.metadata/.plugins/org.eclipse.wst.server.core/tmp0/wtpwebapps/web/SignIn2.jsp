@@ -21,7 +21,7 @@
 	position: relative;
 	overflow: hidden;
 	width: 400px;
-	height: 500px;
+	height: 550px;
 	margin: 80px auto 0;
 	background-color: #ffffff;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
@@ -81,7 +81,7 @@
 
 #signIn .mainWrap .container .content form {
 	position: relative;
-	height: 287px;
+	height: 320px;
 }
 
 #signIn .mainWrap .container .content label {
@@ -93,324 +93,6 @@
 	user-select: none;
 }
 
-#signIn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.mainWrap
-
-
-
-
-
-
-
-.container
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.content
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-label
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:not
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(
-[
-for
-=
-'remember'
-]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-)
-{
-display
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-none
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
-}
 #signIn .mainWrap .container .content input.inpt {
 	font-size: 14px;
 	display: block;
@@ -545,13 +227,15 @@ none
 					<div class="content">
 						<div class="signin-cont cont">
 							<form action="#" method="post" enctype="multipart/form-data">
-								<input type="email" name="email" id="email" class="inpt" required="required"
-									placeholder="Your email"> <label for="email">Your email</label> <input
-									type="password" name="password" id="password" class="inpt" required="required"
-									placeholder="Your password"> <label for="password">Your password</label>
+								<label for="email">Your email</label> <input type="email" name="email" id="email"
+									class="inpt" required="required" placeholder="Your email"> <label for="password">Your
+									password</label> <input type="password" name="password" id="password" class="inpt"
+									required="required" placeholder="Your password">
 								<div class="submit-wrap">
-									<input type="submit" value="Sign in" class="submit">
-									<a href="#" class="more">Forgot your password?</a>
+									<input type="submit" value="Sign in" class="submit"> <input type="button"
+										id="signUp" value="회원가입" class="submit">
+									<a href="FindPW.jsp" class="more">Forgot your password</a>
+									<a href="FindId.jsp" class="more">or id?</a>
 								</div>
 							</form>
 						</div>
@@ -569,7 +253,11 @@ none
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript">
-		
+		$(function() {
+			$("#signUp").click(function() {
+				document.location.href = "SignUp.jsp";
+			});
+		});
 	</script>
 </body>
 </html>
