@@ -10,6 +10,26 @@ hr {
 	border: 2px solid #eee;
 }
 
+a:link {
+	text-decoration: none;
+	color: #646464;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #646464;
+}
+
+a:active {
+	text-decoration: none;
+	color: #646464;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #646464;
+}
+
 .wrap {
 	position: relative;
 	min-height: 100%;
