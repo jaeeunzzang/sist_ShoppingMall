@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
 <link href="/web/shop/css/kfonts2.css" rel="stylesheet">
+<link href="css/maincss.css" rel="stylesheet">	
 <style type="text/css">
 #order{
 	width: 235px;
