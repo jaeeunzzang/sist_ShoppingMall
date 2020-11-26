@@ -1,4 +1,4 @@
-* **mainPage폴더에 있는 mainPage만 경로설정 /web/ 붙여서**         
+* **mainPage폴더에 있는 mainPage.html만 경로설정 /web/ 붙여서**         
   **나머지는 /web/shop/ ~~ 잡다한거 다 붙일필요없이**              
   **- img/cat.jpg**         
   **- action.do 이런식으로 통일**       
