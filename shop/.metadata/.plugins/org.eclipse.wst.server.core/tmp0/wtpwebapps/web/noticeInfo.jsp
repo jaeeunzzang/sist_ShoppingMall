@@ -20,7 +20,11 @@
 			var confirm_test = confirm("정말로 삭제하시겠습니까?");
 			if (confirm_test == true) {
 				alert("삭제되었습니다.");
-				document.location.href = 'noticeDelete.do?n_no='+ ${noticeInfo.n_no};
+				document.location.href = 'noticeDelete.do?n_no=' + $
+				{
+					noticeInfo.n_no
+				}
+				;
 			}
 		});
 	});

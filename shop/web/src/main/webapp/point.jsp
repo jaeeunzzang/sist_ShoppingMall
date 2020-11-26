@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
-<link href="/web/shop/css/kfonts2.css" rel="stylesheet">
-
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/kfonts2.css" rel="stylesheet">
+<link href="css/maincss.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/web/shop/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

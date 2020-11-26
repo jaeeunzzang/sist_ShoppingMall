@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
-<link href="/web/shop/css/kfonts2.css" rel="stylesheet">
-
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/kfonts2.css" rel="stylesheet">
+<link href="css/maincss.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/web/shop/css/bootstrap.min.js"></script>
@@ -31,44 +31,77 @@
 					</div>
 					<div class="panel-body">
 						<div class="table-responsive">
-							<table class="table table-bordered">
-								<colgroup>
-									<col width="100" />
-									<col width="900" />
-								</colgroup>
-								<tr>
-									<td class="text-center">제목</td>
-									<td><input type="text" class="form-control" placeholder="제목을 입력해주세요"></td>
-								</tr>
-								<tr>
-									<td class="text-center">이름</td>
-									<td><input type="text" class="form-control" placeholder="이름을 입력해주세요"
-										style="width: 160px"></td>
-								</tr>
-								<tr>
-									<td colspan="2"><textarea rows="12" class="form-control" placeholder="내용을 입력해주세요"></textarea></td>
-								</tr>
-								<tr>
-									<td class="text-center">첨부파일</td>
-									<td><input type="file"></td>
-								</tr>
-							</table>
+							<c:choose>
+								<c:when test="${job eq 'new'}">
+									<form action="reviewInsert.do" enctype="multipart/form-data" method="post" name="newFrm">
+										<table class="table table-bordered">
+											<colgroup>
+												<col width="100" />
+												<col width="900" />
+											</colgroup>
+											<tr>
+												<td class="text-center">제목</td>
+												<td><input type="text" class="form-control" placeholder="제목을 입력해주세요"></td>
+											</tr>
+											<tr>
+												<td class="text-center">이름</td>
+												<td><input type="text" class="form-control" readonly="readonly"
+														value="${sessionScope.id}" style="width: 160px"></td>
+											</tr>
+											<tr>
+												<td colspan="2"><textarea rows="12" class="form-control" placeholder="내용을 입력해주세요"></textarea></td>
+											</tr>
+											<tr>
+												<td class="text-center">첨부파일</td>
+												<td><input type="file" name="file"></td>
+											</tr>
+										</table>
 						</div>
-						<form role="form" class="form-inline pull-right">
-							<a href="#">
-								<button type="button" class="btn btn-default btn-s">수정</button>
-							</a>
-							<a href="qna.jsp">
-								<button type="button" class="btn btn-default btn-s">목록</button>
-							</a>
+						<div align="right">
+							<button type="button" class="btn btn-default btn-s" id="save">등록</button>
+							<button type="button" class="btn btn-default btn-s" onclick="location.href='reviewList.do'">목록</button>
+						</div>
 						</form>
+						</c:when>
+						<c:otherwise>
+							<form action="reviewUpdate.do" enctype="multipart/form-data" method="post" name="modFrm">
+								<table class="table table-bordered">
+									<colgroup>
+										<col width="100" />
+										<col width="900" />
+									</colgroup>
+									<tr>
+										<td class="text-center">제목</td>
+										<td><input type="text" class="form-control" value="${reviewInfo.r_title}"></td>
+									</tr>
+									<tr>
+										<td class="text-center">이름</td>
+										<td><input type="text" class="form-control" readonly="readonly"
+												value="${reviewInfo.m_id}" style="width: 160px"></td>
+									</tr>
+									<tr>
+										<td colspan="2"><textarea rows="12" class="form-control">${reviewInfo.r_contents}</textarea></td>
+									</tr>
+									<tr>
+										<td class="text-center">첨부파일</td>
+										<td><input type="file" name="file"></td>
+									</tr>
+								</table>
 					</div>
+					<div align="right">
+						<button type="button" class="btn btn-default btn-s" id="mod">수정</button>
+						<button type="button" class="btn btn-default btn-s" onclick="location.href='reviewList.do'">목록</button>
+					</div>
+					</form>
+					</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>
-		<div>
-			<jsp:include page="footer.jsp"></jsp:include>
-		</div>
+	</div>
+	<div>
+		<jsp:include page="footer.jsp"></jsp:include>
+	</div>
 	</div>
 </body>
 </html>
