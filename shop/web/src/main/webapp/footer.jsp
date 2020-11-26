@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/web/shop/css/bootstrap.min.css" rel="stylesheet">
-<link href="/web/shop/css/maincss.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/kfonts2.css" rel="stylesheet">
+<link href="css/maincss.css" rel="stylesheet">
 <style type="text/css">
 .footer{
 	background-color: #F5F5F5;
