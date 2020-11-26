@@ -7,63 +7,88 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/maincss.css" rel="stylesheet">
-<style type="text/css">
-#header .nav {
-	padding-top: 10px;
+<link href="css/kfonts2.css" rel="stylesheet">
+<style>
+.main-menu, .sub-menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
-#header .dropdown-item {
-	color: #6c757d;
-	display: inline;
-	padding: .5rem 1rem;
-	font-size: 16px;
-	font-weight: 600;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+.sub-menu {
+	position: absolute;
+	opacity: 0;
+	visibility: none;
+}
+
+.sub-menu li {
+	padding-top: 30px;
+	font-size: 13px;
+}
+
+.main-menu li:hover .sub-menu {
+	opacity: 1;
+	visibility: visible;
+}
+
+.main-menu {
+	float: left;
+	padding: 20px;
+	font-size: 15px;
+}
+
+.navbar-brand {
+	padding-left: 100px;
 }
 </style>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/web/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 
 	});
 </script>
+
 </head>
 <body>
-	<div class="header" id="header">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-			<div class="container">
-				<a class="navbar-brand" href="mainPage/index.html">NONAME</a>
-
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<nav class="nav">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item"><a class="nav-link" href="SignIn2.jsp">LOGIN</a></li>
-							<li class="nav-item"><a class="nav-link" href="myPage.jsp">MY PAGE</a></li>
-							<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
-									id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="true"> CUSTOMER SERVICE </a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="reviewList.do">REVIEW</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="qnaList.do">QNA</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="noticeList.do">NOTICE</a>
-								</div></li>
-							<li class="nav-item"><a class="nav-link" href="cart.jsp">
-									<img alt="" src="img/cart.png" width="30px;">CART
-								</a></li>
-						</ul>
-					</nav>
-				</div>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					NO
+					<br>
+					NAME
+				</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-right navbar-1-collapse">
+				<ul class="main-menu">
+					<li><a class="text-muted" href="#">SHOP</a>
+						<ul class="sub-menu">
+							<li><a href="#">OUTER</a></li>
+							<li><a href="#">TOP</a></li>
+							<li><a href="#">BOTTOM</a></li>
+						</ul></li>
+				</ul>
+				<ul class="main-menu">
+					<li><a class="text-muted" href="SignIn2.jsp">LOGIN</a></li>
+				</ul>
+				<ul class="main-menu">
+					<li><a class="text-muted" href="myPage.jsp">MYPAGE</a></li>
+				</ul>
+				<ul class="main-menu">
+					<li><a class="text-muted" href="#">BOARD </a>
+						<ul class="sub-menu">
+							<li><a href="qnaList.do">Q&A</a></li>
+							<li><a href="reviewList.do">REVIEW</a></li>
+							<li><a href="noticeList.do">NOTICE</a></li>
+						</ul></li>
+				</ul>
+				<ul class="main-menu">
+					<li><a class="text-muted" href="cart.jsp">CART</a></li>
+				</ul>
 			</div>
 		</nav>
 	</div>
 </body>
 </html>
-
