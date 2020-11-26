@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link href="/web/css/bootstrap.min.css" rel="stylesheet">
 <link href="/web/css/kfonts2.css" rel="stylesheet">
-<link href="/css/maincss.css" rel="stylesheet">
+<link href="css/maincss.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
