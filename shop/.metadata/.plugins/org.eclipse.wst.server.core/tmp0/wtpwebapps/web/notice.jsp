@@ -64,10 +64,13 @@
 						</c:forEach>
 					</tbody>
 				</table>
-
-				<p align="right">
-					<button type="button" class="btn btn-default btn-s" id="write">글쓰기</button>
-				</p>
+				<c:choose>
+					<c:when test="${sessionScope.id eq 'Admin' }">
+						<p align="right">
+							<button type="button" class="btn btn-default btn-s" id="write">글쓰기</button>
+						</p>
+					</c:when>
+				</c:choose>
 				<div class="text-center">
 					<ul class="pagination">
 						<li class="disabled"><a href="#">
