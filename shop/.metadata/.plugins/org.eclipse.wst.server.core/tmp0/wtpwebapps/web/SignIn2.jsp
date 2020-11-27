@@ -227,10 +227,10 @@
 					<div class="content">
 						<div class="signin-cont cont">
 							<form action="loginCheck.do" method="post" enctype="multipart/form-data">
-								<label for="id">Your ID</label> <input type="text" name="m_id" id="m_id"
-									class="inpt" required="required" placeholder="Your ID"> <label for="password">Your
-									password</label> <input type="password" name="m_pw" id="m_pw" class="inpt"
-									required="required" placeholder="Your password">
+								<label for="id">Your ID</label> <input type="text" name="m_id" id="m_id" class="inpt"
+									required="required" placeholder="Your ID"> <label for="password">Your
+									password</label> <input type="password" name="m_pw" id="m_pw" class="inpt" required="required"
+									placeholder="Your password">
 								<div class="submit-wrap">
 									<input type="submit" value="Sign in" class="submit"> <input type="button"
 										id="signUp" value="회원가입" class="submit">
