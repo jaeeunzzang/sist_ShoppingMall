@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import shop.com.app.dto.NoticeBean;
+import shop.com.app.dto.QnaBean;
 import shop.com.app.dto.ReviewBean;
 
 @Repository
@@ -61,5 +62,25 @@ public class BoardDao extends SqlSessionDaoSupport {
 
 	public void deleteReview(int r_no) {
 		this.getSqlSession().delete("deleteReview", r_no);
+	}
+
+	public List<QnaBean> selectQna() {
+		return this.getSqlSession().selectList("selectQna");
+	}
+
+	public QnaBean selectQnaInfo(int q_no) {
+		return this.getSqlSession().selectOne("selectQnaInfo", q_no);
+	}
+
+	public void insertQna(QnaBean qna) {
+		this.getSqlSession().insert("insertQna", qna);
+	}
+
+	public void updateQna(QnaBean qna) {
+		this.getSqlSession().update("updateQna", qna);
+	}
+
+	public void deleteQna(int q_no) {
+		this.getSqlSession().delete("deleteQna", q_no);
 	}
 }

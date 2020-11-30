@@ -11,7 +11,7 @@
 <link href="css/maincss.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/web/shop/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -36,7 +36,9 @@
 						<option>아이디</option>
 					</select> <input type="text" class="form-control input-s">
 					<button type="button" class="btn btn-default btn-s">찾기</button>
-					<a href="qnaWrite.jsp"><button type="button" class="btn btn-default btn-s">글쓰기</button></a>
+					<a href="qnaWrite.jsp">
+						<button type="button" class="btn btn-default btn-s">글쓰기</button>
+					</a>
 				</form>
 				<br>
 				<br>
@@ -55,47 +57,40 @@
 						<tr>
 							<th class="text-center">NO</th>
 							<th class="text-center">PRODUCT</th>
-							<th class="text-center">SUBJECT</th>
-							<th class="text-center">NAME</th>
+							<th class="text-center">TITLE</th>
+							<th class="text-center">ID</th>
 							<th class="text-center">DATE</th>
-							<th class="text-center">HIT</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th class="text-center">1</th>
-							<th class="text-center"><img src="/web/shop/img/trouser.jpg" /></th>
-							<th><a href="qnaInfo.jsp">[상품문의] 사이즈가 궁금해요! <img class="reImg" src="/web/shop/img/lock.png"></a></th>
-							<th class="text-center">강***</th>
-							<th class="text-center">2020-11-20</th>
-							<th class="text-center">7</th>
-						</tr>
-						<tr>
-							<th class="text-center">2</th>
-							<th></th>
-							<th><img class="reImg" src="/web/shop/img/re.png">[RE] 사이즈가 궁금해요! <img class="reImg"
-								src="/web/shop/img/lock.png"></th>
-							<th class="text-center">NONAME</th>
-							<th class="text-center">2020-11-20</th>
-							<th class="text-center">1</th>
-						</tr>
-						<tr>
-							<th class="text-center">3</th>
-							<th class="text-center"><img src="/web/shop/img/e.jpg" /></th>
-							<th>[배송문의] 배송문의 드려요~ <img class="reImg" src="/web/shop/img/lock.png"></th>
-							<th class="text-center">김***</th>
-							<th class="text-center">2020-11-20</th>
-							<th class="text-center">7</th>
-						</tr>
-						<tr>
-							<th class="text-center">4</th>
-							<th></th>
-							<th><img class="reImg" src="/web/shop/img/re.png"> [RE] 배송문의 드려요~<img class="reImg"
-								src="/web/shop/img/lock.png"></th>
-							<th class="text-center">NONAME</th>
-							<th class="text-center">2020-11-20</th>
-							<th class="text-center">1</th>
-						</tr>
+						<c:forEach var="i" items="${qnaList}" varStatus="cnt">
+							<tr>
+								<th class="text-center">${cnt.count}</th>
+								<c:choose>
+									<c:when test="${i.state eq 'new'}">
+										<th class="text-center"><img src="img/${i.p_fileName}" /></th>
+										<th><a href="qnaInfo.do?q_no=${i.q_no}">
+												${i.q_title}
+												<c:if test="${i.secret eq 'private'}">
+													<img class="reImg" src="img/lock.png">
+												</c:if>
+											</a></th>
+									</c:when>
+									<c:otherwise>
+										<th></th>
+										<th><img class="reImg" src="img/re.png"> <a href="qnaInfo.do?q_no=${i.q_no}">
+												[RE]${i.q_title}
+												<c:if test="${i.secret eq 'private'}">
+													<img class="reImg" src="img/lock.png">
+												</c:if>
+											</a></th>
+									</c:otherwise>
+								</c:choose>
+								<th class="text-center">${i.m_id}</th>
+								<th class="text-center">${i.q_regdate}</th>
+							</tr>
+						</c:forEach>
+
 					</tbody>
 				</table>
 

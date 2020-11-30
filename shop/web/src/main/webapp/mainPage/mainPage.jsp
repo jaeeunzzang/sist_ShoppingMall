@@ -132,8 +132,8 @@
 					<ul class="main-menu">
 						<li><a class="text-muted" href="#">BOARD</a>
 							<ul class="sub-menu">
-								<li><a href="/web/reviewList.do">Q&A</a></li>
-								<li><a href="/web/qnaList.do">REVIEW</a></li>
+								<li><a href="/web/qnaList.do">Q&A</a></li>
+								<li><a href="/web/reviewList.do">REVIEW</a></li>
 								<li><a href="/web/noticeList.do">NOTICE</a></li>
 							</ul></li>
 					</ul>

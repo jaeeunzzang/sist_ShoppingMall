@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import shop.com.app.dto.NoticeBean;
+import shop.com.app.dto.QnaBean;
 import shop.com.app.dto.ReviewBean;
 import shop.com.dao.BoardDao;
 
@@ -101,6 +102,12 @@ public class BoardController {
 		return "redirect:reviewList.do";
 	}
 
+	@RequestMapping(value = "reviewWrite.do")
+	public String reviewWriteAction(int p_no, Model model) {
+		model.addAttribute("p_no", p_no);
+		return "reviewWrite";
+	}
+
 	@RequestMapping(value = "reviewMod.do")
 	public String reviewModAction(int r_no, String job, Model model) {
 		model.addAttribute("reviewMod", dao.selectReviewInfo(r_no));
@@ -118,5 +125,30 @@ public class BoardController {
 	public String reviewDeleteAction(int r_no) {
 		dao.deleteReview(r_no);
 		return "redirect:reviewList.do";
+	}
+
+	@RequestMapping(value = "qnaList.do")
+	public String qnaListAction(Model model) {
+		model.addAttribute("qnaList", dao.selectQna());
+		return "qna";
+	}
+
+	@RequestMapping(value = "qnaInfo.do")
+	public String qnaInfoAction(int q_no) {
+		dao.selectQnaInfo(q_no);
+		return "qnaInfo";
+	}
+
+	@RequestMapping(value = "qnaWrite.do")
+	public String qnaWriteAction(int p_no, Model model) {
+		model.addAttribute("p_no", p_no);
+		model.addAttribute("state", "new");
+		return "qnaWrite";
+	}
+
+	@RequestMapping(value = "qnaInsert.do")
+	public String qnaInsertAction(QnaBean qna) {
+		dao.insertQna(qna);
+		return "qna";
 	}
 }
