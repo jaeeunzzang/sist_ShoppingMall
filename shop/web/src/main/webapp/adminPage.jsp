@@ -39,9 +39,8 @@ a:hover {
 </head>
 <jsp:include page="header.jsp"></jsp:include>
 <body>
-ㅇㅇㅇㅇㅇㅇㅇㅇ
 	<div class="wrap">
-		<div class="mainWrap">
+		<div class="mainWrap"> 
 			<div class="mainContents">
 				<div class="container">
 					<div class="jumbotron text-center" style="background-color: white">
