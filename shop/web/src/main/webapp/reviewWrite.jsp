@@ -15,7 +15,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$("button#save").click(function() {
 
+		});
 	});
 </script>
 
@@ -41,12 +43,14 @@
 											</colgroup>
 											<tr>
 												<td class="text-center">제목</td>
-												<td><input type="text" class="form-control" placeholder="제목을 입력해주세요"></td>
+												<td><input type="text" class="form-control" placeholder="제목을 입력해주세요"> <input
+													type="hidden" name="p_no" value="${p_no}"></td>
+
 											</tr>
 											<tr>
 												<td class="text-center">이름</td>
 												<td><input type="text" class="form-control" readonly="readonly"
-														value="${sessionScope.id}" style="width: 160px"></td>
+													value="${sessionScope.id}" style="width: 160px"></td>
 											</tr>
 											<tr>
 												<td colspan="2"><textarea rows="12" class="form-control" placeholder="내용을 입력해주세요"></textarea></td>
@@ -56,12 +60,12 @@
 												<td><input type="file" name="file"></td>
 											</tr>
 										</table>
+									</form>
 						</div>
 						<div align="right">
 							<button type="button" class="btn btn-default btn-s" id="save">등록</button>
 							<button type="button" class="btn btn-default btn-s" onclick="location.href='reviewList.do'">목록</button>
 						</div>
-						</form>
 						</c:when>
 						<c:otherwise>
 							<form action="reviewUpdate.do" enctype="multipart/form-data" method="post" name="modFrm">
@@ -72,12 +76,13 @@
 									</colgroup>
 									<tr>
 										<td class="text-center">제목</td>
-										<td><input type="text" class="form-control" value="${reviewInfo.r_title}"></td>
+										<td><input type="text" class="form-control" value="${reviewInfo.r_title}"><input
+											type="hidden" name="p_no" value="${reviewInfo.p_no}"></td>
 									</tr>
 									<tr>
 										<td class="text-center">이름</td>
 										<td><input type="text" class="form-control" readonly="readonly"
-												value="${reviewInfo.m_id}" style="width: 160px"></td>
+											value="${reviewInfo.m_id}" style="width: 160px"></td>
 									</tr>
 									<tr>
 										<td colspan="2"><textarea rows="12" class="form-control">${reviewInfo.r_contents}</textarea></td>
@@ -87,12 +92,12 @@
 										<td><input type="file" name="file"></td>
 									</tr>
 								</table>
+							</form>
 					</div>
 					<div align="right">
 						<button type="button" class="btn btn-default btn-s" id="mod">수정</button>
 						<button type="button" class="btn btn-default btn-s" onclick="location.href='reviewList.do'">목록</button>
 					</div>
-					</form>
 					</c:otherwise>
 					</c:choose>
 				</div>

@@ -16,7 +16,20 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		$("button#review").click(function() {
+			document.location.href = "reviewWrite.do?p_no=" + $
+			{
+				pList.p_no
+			}
+			;
+		});
+		$("button#qna").click(function() {
+			document.location.href = "qnaWrite.do?p_no=" + $
+			{
+				pList.p_no
+			}
+			;
+		});
 	});
 </script>
 </head>
@@ -64,6 +77,12 @@
 					<hr style="border: 2px solid #eee; width: 100%; margin: 0;">
 					Detail
 					<div>
+						<div align="right">
+							<span>
+								<button id="review">리뷰</button>
+								<button id="qna">문의</button>
+							</span>
+						</div>
 						<ul>
 							<li><img src="img/cat2.jpg"> <br>
 								<p>고양이에용 고양이 주황고양이 야옹야옹 기여웡</p>

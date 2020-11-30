@@ -88,8 +88,8 @@
 												<td>
 													<div class="form-group">
 														<input type="text" class="form-control" name="n_title" id="mod_title"
-															value="${noticeMod.n_title}" style="width: 945px">
-														<input type="hidden" name="n_no" value="${noticeMod.n_no}">
+															value="${noticeMod.n_title}" style="width: 945px"> <input type="hidden"
+															name="n_no" value="${noticeMod.n_no}">
 													</div>
 												</td>
 											</tr>
