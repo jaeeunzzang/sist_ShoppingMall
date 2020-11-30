@@ -39,7 +39,6 @@
 	<beans:bean id="boardDao" class="shop.com.dao.BoardDao">
 		<beans:property name="sqlSessionFactory" ref="ssf"></beans:property>
 	</beans:bean>
-
 	<beans:bean id="memberDao" class="shop.com.dao.MemberDao">
 		<beans:property name="sqlSessionFactory" ref="ssf"></beans:property>
 	</beans:bean>

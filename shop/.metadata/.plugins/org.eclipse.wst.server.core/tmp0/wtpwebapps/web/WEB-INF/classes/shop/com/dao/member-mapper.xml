@@ -7,4 +7,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT M_ID FROM MEMBER WHERE M_ID=#{m_id} AND M_PW=#{m_pw}
 	</select>
 	
+
 </mapper>

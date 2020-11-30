@@ -64,9 +64,13 @@
 							</table>
 						</div>
 						<form role="form" class="form-inline pull-right">
-							<button type="button" class="btn btn-default btn-s"
-								onclick="location.href='noticeMod.do?n_no=${noticeInfo.n_no}&job=mod'">수정</button>
-							<button type="button" class="btn btn-default btn-s" id="del">삭제</button>
+							<c:choose>
+								<c:when test="${sessionScope.id eq 'Admin'}">
+									<button type="button" class="btn btn-default btn-s"
+										onclick="location.href='noticeMod.do?n_no=${noticeInfo.n_no}&job=mod'">수정</button>
+									<button type="button" class="btn btn-default btn-s" id="del">삭제</button>
+								</c:when>
+							</c:choose>
 							<button type="button" class="btn btn-default btn-s" id="list">목록</button>
 						</form>
 					</div>
