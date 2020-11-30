@@ -60,7 +60,7 @@
 	<div class="container">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="mainPage/mainPage.html">
+				<a class="navbar-brand" href="mainPage/mainPage.jsp">
 					NO
 					<br>
 					NAME
@@ -76,9 +76,18 @@
 								<li><a href="#">BOTTOM</a></li>
 							</ul></li>
 					</ul>
-					<ul class="main-menu">
-						<li><a class="text-muted" href="SignIn2.jsp">LOGIN</a></li>
-					</ul>
+					<c:choose>
+						<c:when test="${empty sessionScope.id}">
+							<ul class="main-menu">
+								<li><a class="text-muted" href="SignIn2.jsp">LOGIN</a></li>
+							</ul>
+						</c:when>
+						<c:otherwise>
+							<ul class="main-menu">
+								<li><a class="text-muted" href="SignIn2.jsp">LOGOUT</a></li>
+							</ul>
+						</c:otherwise>
+					</c:choose>
 					<ul class="main-menu">
 						<li><a class="text-muted" href="myPage.jsp">MYPAGE</a></li>
 					</ul>

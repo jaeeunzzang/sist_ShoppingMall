@@ -81,9 +81,13 @@ textarea.form-control:read-only {
 							</table>
 						</div>
 						<div align="right">
-							<button type="button" class="btn btn-default btn-s"
-								onclick="location.href='reviewMod.do?r_no=${reviewInfo.r_no}&job=mod'">수정</button>
-							<button type="button" class="btn btn-default btn-s" id="del">삭제</button>
+							<c:choose>
+								<c:when test="${sessionScope.id eq reviewInfo.m_id}">
+									<button type="button" class="btn btn-default btn-s"
+										onclick="location.href='reviewMod.do?r_no=${reviewInfo.r_no}&job=mod'">수정</button>
+									<button type="button" class="btn btn-default btn-s" id="del">삭제</button>
+								</c:when>
+							</c:choose>
 							<button type="button" class="btn btn-default btn-s" id="list">목록</button>
 						</div>
 					</div>
