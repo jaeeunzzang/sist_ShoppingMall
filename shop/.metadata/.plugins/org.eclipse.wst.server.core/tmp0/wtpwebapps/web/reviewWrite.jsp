@@ -34,7 +34,7 @@
 					<div class="panel-body">
 						<div class="table-responsive">
 							<c:choose>
-								<c:when test="${job eq 'new'}">
+								<c:when test="${job ne 'mod'}">
 									<form action="reviewInsert.do" enctype="multipart/form-data" method="post" name="newFrm">
 										<table class="table table-bordered">
 											<colgroup>

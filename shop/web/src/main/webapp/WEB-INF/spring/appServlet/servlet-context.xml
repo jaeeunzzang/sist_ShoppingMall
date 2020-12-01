@@ -4,9 +4,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
@@ -29,12 +38,46 @@
 		<beans:property name="username" value="apple"></beans:property>
 		<beans:property name="password" value="1234"></beans:property>
 	</beans:bean>
+
+	<beans:bean id="logds"
+		class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<!-- 먼가 기록하고 저장하는 소스 -->
+		<beans:constructor-arg ref="ds"></beans:constructor-arg>
+		<beans:property name="logFormatter">
+			<beans:bean
+				class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<beans:property name="loggingType" value="MULTI_LINE"></beans:property>
+				<beans:property name="sqlPrefix" value="SQL :"></beans:property>
+			</beans:bean>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="logds"></beans:bean>
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
 	<beans:bean id="ssf"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<beans:property name="dataSource" ref="ds"></beans:property>
+		<beans:property name="dataSource" ref="logds"></beans:property>
 		<beans:property name="configLocation"
 			value="WEB-INF/Config.xml"></beans:property>
 	</beans:bean>
+
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- when -->
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config><!-- 환경 -->
+		<aop:advisor advice-ref="txAdvice"
+			pointcut="execution(* shop.com.dao.*.*(..))" />
+	</aop:config>
+
 
 	<beans:bean id="boardDao" class="shop.com.dao.BoardDao">
 		<beans:property name="sqlSessionFactory" ref="ssf"></beans:property>

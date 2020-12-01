@@ -39,9 +39,20 @@
 	opacity: 1;
 	visibility: visible;
 	background-color: #f8f8f8;
-	border:1px solid;
+	border: 1px solid;
 	border-color: #e7e7e7;
 	padding: 10px;
+}
+
+a:link, a:visited, a:active {
+	text-decoration: none;
+	color: #646464;
+}
+
+a:hover {
+	text-decoration: none;
+	font-weight: bold;
+	color: #646464;
 }
 
 .main-menu {
@@ -189,11 +200,19 @@
 	<!-- 상품이미지 -->
 	<div class="container">
 		<div class="row product">
+
+			<c:forEach var="i" items="${pList}">
+				<div class="col-md-4" style="width: 390px">
+					<a href="/web/productDetail.do?p_no=${i.p_no}">
+						<img class="card-img-top" src="img/${i.p_fileName}" width=100% height="450">
+					</a>
+				</div>
+			</c:forEach>
+
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/6.jpg" width=100% height="450">
-			</div>
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/7.jpg" width=100% height="450">
+				<a href="/web/productDetail.do?p_no=1">
+					<img class="card-img-top" src="img/7.jpg" width=100% height="450">
+				</a>
 			</div>
 			<div class="col-md-4" style="width: 390px">
 				<img class="card-img-top" src="img/skirt.jpg" width=100% height="450">
