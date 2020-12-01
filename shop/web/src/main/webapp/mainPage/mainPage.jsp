@@ -38,6 +38,10 @@
 .main-menu li:hover .sub-menu {
 	opacity: 1;
 	visibility: visible;
+	background-color: #f8f8f8;
+	border:1px solid;
+	border-color: #e7e7e7;
+	padding: 10px;
 }
 
 .main-menu {
