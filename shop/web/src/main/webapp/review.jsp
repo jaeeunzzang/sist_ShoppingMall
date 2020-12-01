@@ -116,10 +116,9 @@
 						<option>내용</option>
 						<option>이름</option>
 						<option>아이디</option>
-					</select>
-					<input type="text" class="form-control input-s">
+					</select> <input type="text" class="form-control input-s">
 					<button type="button" class="btn btn-default btn-s">찾기</button>
-					<a href="reviewWrite.jsp">
+					<a href="reviewWrite.do">
 						<button type="button" class="btn btn-default btn-s">글쓰기</button>
 					</a>
 				</form>
