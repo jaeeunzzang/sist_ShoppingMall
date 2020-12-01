@@ -90,6 +90,27 @@ textarea.form-control:read-only {
 							</c:choose>
 							<button type="button" class="btn btn-default btn-s" id="list">목록</button>
 						</div>
+
+						<div class="panel-heading">
+							<h4 class="panel-title">COMMENTS</h4>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-bordered">
+								<colgroup>
+									<col width="100" />
+									<col width="900" />
+								</colgroup>
+								<tr>
+									<td><img src="img/re.png"> Admin</td>
+									<td>${reviewInfo.r_comments}</td>
+								</tr>
+							</table>
+							<c:if test="${sessionScope.id eq 'Admin'}">
+								<div align="right">
+									<button type="button" class="btn btn-default btn-s" id="commentsMod">답글수정</button>
+								</div>
+							</c:if>
+						</div>
 					</div>
 				</div>
 			</div>

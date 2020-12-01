@@ -118,9 +118,6 @@
 						<option>아이디</option>
 					</select> <input type="text" class="form-control input-s">
 					<button type="button" class="btn btn-default btn-s">찾기</button>
-					<a href="reviewWrite.do">
-						<button type="button" class="btn btn-default btn-s">글쓰기</button>
-					</a>
 				</form>
 				<br>
 				<br>
@@ -130,9 +127,9 @@
 					<colgroup>
 						<col width="50" />
 						<col width="100" />
-						<col width="500" />
+						<col width="450" />
 						<col width="100" />
-						<col width="50" />
+						<col width="100" />
 					</colgroup>
 					<thead>
 						<tr>
@@ -153,7 +150,6 @@
 								<th class="text-center">${i.r_regdate}</th>
 							</tr>
 						</c:forEach>
-
 					</tbody>
 				</table>
 				<br>
