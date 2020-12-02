@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.com.app.dto.BoardMapper">
+
+	<select id="selectNotice" resultType="notice">
+		SELECT*FROM NOTICE ORDER BY
+		N_NO DESC
+	</select>
+
+	<select id="selectNoticeInfo" resultType="notice"
+		parameterType="java.lang.Integer">
+		SELECT
+		N_NO,N_TITLE,N_CONTENTS,TO_CHAR(N_REGDATE,'YYYY/MM/DD')N_REGDATE FROM
+		NOTICE WHERE N_NO=#{n_no}
+	</select>
+
+	<insert id="insertNotice" parameterType="notice">
+		INSERT INTO NOTICE
+		VALUES(NOTICE_SEQ.NEXTVAL,#{n_title},#{n_contents},SYSDATE)
+	</insert>
+
+	<update id="updateNotice" parameterType="notice">
+		UPDATE NOTICE SET
+		N_TITLE=#{n_title},N_CONTENTS=#{n_contents}
+		WHERE N_NO=#{n_no}
+	</update>
+
+	<delete id="deleteNotice" parameterType="java.lang.Integer">
+		DELETE FROM NOTICE WHERE
+		N_NO=#{n_no}
+	</delete>
+
+	<select id="selectReview" resultType="review">
+		SELECT *FROM REVIEW
+	</select>
+
+	<select id="selectReviewInfo" parameterType="java.lang.Integer"
+		resultType="review">
+		SELECT
+		R_NO,M_ID,REVIEW.P_NO,P_NAME,R_TITLE,R_CONTENTS,R_REGDATE,R_FILENAME
+		FROM
+		REVIEW,PRODUCT WHERE REVIEW.P_NO=PRODUCT.P_NO AND R_NO=#{r_no}
+	</select>
+
+	<insert id="insertReview" parameterType="review">
+		INSERT INTO
+		REVIEW(R_NO,P_NO,R_TITLE,M_ID,R_CONTENTS,R_REGDATE,R_FILENAME)
+		VALUES(REVIEW_SEQ.NEXTVAL,#{p_no},#{r_title},#{m_id},#{r_contents},SYSDATE,#{r_fileName})
+	</insert>
+
+	<update id="updateReview" parameterType="review">
+		UPDATE REVIEW SET
+		R_TITLE=#{r_title},R_CONTENTS=#{r_contents},R_COMMENTS=#{r_comments}
+		WHERE R_NO=#{r_no}
+	</update>
+
+	<delete id="deleteReview" parameterType="java.lang.Integer">
+		DELETE REVIEW WHERE
+		R_NO=#{r_no}
+	</delete>
+
+	<select id="selectQna" resultType="qna">
+		SELECT * FROM QNA
+	</select>
+
+	<select id="selectQnaInfo" parameterType="java.lang.Integer"
+		resultType="qna">
+		SELECT * FROM QNA WHERE Q_NO=#{q_no}
+	</select>
+
+	<insert id="insertQna" parameterType="qna">
+		INSERT INTO
+		QNA(Q_NO,Q_TITLE,M_ID,Q_CONTENTS,Q_REGDATE,STATE,SECRET,Q_PNUM,P_NO)
+		VALUES(QNA_SEQ.NEXTVAL,#{m_id},#{q_contents},SYSDATE,#{state},#{secret},#{q_pnum},#{p_no})
+	</insert>
+
+	<update id="updateQna" parameterType="qna">
+		UPDATE QNA SET Q_TITLE=#{q_title},Q_CONTENTS=#{q_contents},SECRET=#{secret} WHERE Q_NO=#{q_no}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>NO NAME LOGIN</title>
 <link href="css/maincss.css" rel="stylesheet">
 <style rel="stylesheet">
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);

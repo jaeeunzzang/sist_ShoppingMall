@@ -15,6 +15,8 @@ C:\Users\qkrwo\Desktop\sist\∆¿«¡∑Œ¡ß∆Æ_ºÓ«Œ∏Ù\shop\.metadata\.plugins\org.eclips
 \web\src\main\java
 C:\Users\qkrwo\Desktop\sist\∆¿«¡∑Œ¡ß∆Æ_ºÓ«Œ∏Ù\shop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4069684495.index
 \web\src\main\java
+C:\Users\qkrwo\Desktop\sist_ShoppingMall\shop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2478934633.index
+\web\src\main\java
 C:\Users\qkrwo\Desktop\sist\∆¿«¡∑Œ¡ß∆Æ_ºÓ«Œ∏Ù\shop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\620978424.index
 \web\src\main\java
 C:\Users\qkrwo\Desktop\sist\∆¿«¡∑Œ¡ß∆Æ_ºÓ«Œ∏Ù\shop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2613157803.index
