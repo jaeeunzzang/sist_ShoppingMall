@@ -1,0 +1,18 @@
+package shop.com.bbs;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import shop.com.dao.ProductDao;
+
+@Controller
+public class ProductController {
+
+	@Resource(name = "productDao") // servlet-context bean id랑 이름같게.
+	private ProductDao dao;
+	
+	@RequestMapping(value="")
+
+}

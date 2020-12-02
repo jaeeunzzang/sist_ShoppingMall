@@ -1,0 +1,15 @@
+package shop.com.app.dto;
+
+public class QnaBean {
+	private int q_no; // 문의번호
+	private String m_id; // 회원아이디
+	private String q_title; // 문의제목
+	private String q_contents; // 문의내용
+	private String q_regdate; // 문의 작성일
+	private int q_pnum; // 부모번호
+	private int p_no;// 상품번호
+	private String state; // 새글답글여부
+	private String secret; // 비밀글여부
+	private String p_fileName;// 상품이미지 - db엔 없고 조인으로 받아올것
+	private String m_pw; // 회원비밀번호 - 비밀글일때 검증
+}

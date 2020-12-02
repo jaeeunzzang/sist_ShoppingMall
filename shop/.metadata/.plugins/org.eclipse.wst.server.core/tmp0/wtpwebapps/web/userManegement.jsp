@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>USER MANAGEMENT</title>
 <link href="/web/css/bootstrap.min.css" rel="stylesheet">
 <link href="/web/css/kfonts2.css" rel="stylesheet">
 <link href="css/maincss.css" rel="stylesheet">
