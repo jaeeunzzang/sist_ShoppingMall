@@ -21,6 +21,10 @@ public class ProductDao extends SqlSessionDaoSupport {
 		super.setSqlSessionFactory(sqlSessionFactory);
 	}
 
+	public List<ProductBean> productList() {
+		return this.getSqlSession().selectList("selectProductList");
+	}
+
 	public ProductBean productDetail(int p_no) {
 		return this.getSqlSession().selectOne("selectProductInfo", p_no);
 	}

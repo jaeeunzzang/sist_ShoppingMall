@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>NO NAME</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
@@ -15,6 +15,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- <script src="js/bootstrap.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <style>
 
 /*헤더  */
@@ -132,7 +133,7 @@ a:hover {
 					<c:choose>
 						<c:when test="${empty sessionScope.id}">
 							<ul class="main-menu">
-								<li><a class="text-muted" href="../SignIn2.jsp">LOGIN</a></li>
+								<li><a class="text-muted" href="SignIn2.jsp">LOGIN</a></li>
 							</ul>
 						</c:when>
 						<c:otherwise>
@@ -142,7 +143,7 @@ a:hover {
 						</c:otherwise>
 					</c:choose>
 					<ul class="main-menu">
-						<li><a class="text-muted" href="../myPage.jsp">MYPAGE</a></li>
+						<li><a class="text-muted" href="myPage.jsp">MYPAGE</a></li>
 					</ul>
 					<ul class="main-menu">
 						<li><a class="text-muted" href="#">BOARD</a>
@@ -153,7 +154,7 @@ a:hover {
 							</ul></li>
 					</ul>
 					<ul class="main-menu">
-						<li><a class="text-muted" href="../cart.jsp">CART</a></li>
+						<li><a class="text-muted" href="cart.jsp">CART</a></li>
 					</ul>
 				</div>
 			</div>
@@ -175,13 +176,13 @@ a:hover {
 
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="img/8.jpg" alt="...">
+					<img src="mainPage/img/8.jpg" alt="...">
 				</div>
 				<div class="item">
-					<img src="img/2.jpg" alt="...">
+					<img src="mainPage/img/2.jpg" alt="...">
 				</div>
 				<div class="item">
-					<img src="img/3.jpg" alt="...">
+					<img src="mainPage/img/3.jpg" alt="...">
 				</div>
 			</div>
 
@@ -204,40 +205,40 @@ a:hover {
 			<c:forEach var="i" items="${pList}">
 				<div class="col-md-4" style="width: 390px">
 					<a href="/web/productDetail.do?p_no=${i.p_no}">
-						<img class="card-img-top" src="img/${i.p_fileName}" width=100% height="450">
+						<img class="card-img-top" src="mainPage/img/${i.p_fileName}" width=100% height="450">
 					</a>
 				</div>
 			</c:forEach>
 
 			<div class="col-md-4" style="width: 390px">
 				<a href="/web/productDetail.do?p_no=1">
-					<img class="card-img-top" src="img/7.jpg" width=100% height="450">
+					<img class="card-img-top" src="mainPage/img/7.jpg" width=100% height="450">
 				</a>
 			</div>
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/skirt.jpg" width=100% height="450">
+				<img class="card-img-top" src="mainPage/img/skirt.jpg" width=100% height="450">
 			</div>
 		</div>
 		<div class="row product">
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/denim.jpg" width=100% height="450">
+				<img class="card-img-top" src="mainPage/img/denim.jpg" width=100% height="450">
 			</div>
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/e.jpg" width=100% height="450">
+				<img class="card-img-top" src="mainPage/img/e.jpg" width=100% height="450">
 			</div>
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/knit.jpg" width=100% height="450">
+				<img class="card-img-top" src="mainPage/img/knit.jpg" width=100% height="450">
 			</div>
 		</div>
 		<div class="row product">
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/trouser.jpg" width=100% height="450">
+				<img class="card-img-top" src="mainPage/img/trouser.jpg" width=100% height="450">
 			</div>
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/5.jpg" width=100% height="450">
+				<img class="card-img-top" src="mainPage/img/5.jpg" width=100% height="450">
 			</div>
 			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="img/4.jpg" width=100% height="450">
+				<img class="card-img-top" src="mainPage/img/4.jpg" width=100% height="450">
 			</div>
 		</div>
 	</div>

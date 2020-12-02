@@ -10,6 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE FROM PRODUCT
 	</sql>
 
+	<select id="selectProductList" resultType="product">
+		<include refid="product"></include>
+	</select>
+
 	<select id="selectProductInfo" parameterType="java.lang.String"
 		resultType="product">
 		<include refid="product"></include>

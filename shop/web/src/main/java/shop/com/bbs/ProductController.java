@@ -14,6 +14,12 @@ public class ProductController {
 	@Resource(name = "productDao") // servlet-context bean id랑 이름같게.
 	private ProductDao dao;
 
+	@RequestMapping(value = "mainPage.do")
+	public String mainPageProductListAction(Model model) {
+		model.addAttribute("pList", dao.productList());
+		return "/mainPage/mainPage";
+	}
+
 	@RequestMapping(value = "productDetail.do")
 	public String productDetail(int p_no, Model model) {
 		model.addAttribute("productInfo", dao.productDetail(p_no));
