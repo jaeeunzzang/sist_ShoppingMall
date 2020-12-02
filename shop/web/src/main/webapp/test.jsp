@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="refresh" content="0;url=mainPage.do">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
-<jsp:include page="header.jsp"></jsp:include>
-<body>${sessionScope.id}로그인성공
+<body>
 </body>
 </html>

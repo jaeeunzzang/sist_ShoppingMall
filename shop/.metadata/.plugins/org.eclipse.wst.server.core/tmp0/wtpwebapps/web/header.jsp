@@ -70,7 +70,7 @@ a:hover {
 	<div class="container">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="mainPage/mainPage.jsp">
+				<a class="navbar-brand" href="mainPage.do">
 					NO
 					<br>
 					NAME
@@ -89,7 +89,7 @@ a:hover {
 					<c:choose>
 						<c:when test="${empty sessionScope.id}">
 							<ul class="main-menu">
-								<li><a class="text-muted" href="SignIn2.jsp">LOGIN</a></li>
+								<li><a class="text-muted" href="../SignIn2.jsp">LOGIN</a></li>
 							</ul>
 						</c:when>
 						<c:otherwise>
