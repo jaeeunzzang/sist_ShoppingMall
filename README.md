@@ -1,4 +1,5 @@
-* **mainPage폴더에 있는 mainPage.html만 경로설정 /web/ 붙여서**         
+* **첫 시작페이지는 index.jsp **
+  **mainPage폴더에 있는 mainPage.jsp에서 경로설정**        ->메인페이지 폴더안에있는 파일에 접근할때는 mainPage/img/sfs.jpg 이런식으로 붙여줄것         
   **나머지는 /web/shop/ ~~ 잡다한거 다 붙일필요없이**              
   **- img/cat.jpg**         
   **- action.do 이런식으로 통일**       
