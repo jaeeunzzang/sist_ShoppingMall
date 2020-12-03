@@ -6,11 +6,13 @@ public class QnaBean {
 	private String q_title; // 문의제목
 	private String q_contents; // 문의내용
 	private String q_regdate; // 문의 작성일
+	private String p_fileName;// 상품이미지 - db엔 없고 조인으로 받아올것
+
+	// 밑부터 새로추가한 db column
 	private int q_pnum; // 부모번호
 	private int p_no;// 상품번호
 	private String state; // 새글답글여부
 	private String secret; // 비밀글여부
-	private String p_fileName;// 상품이미지 - db엔 없고 조인으로 받아올것
 
 	public int getQ_no() {
 		return q_no;

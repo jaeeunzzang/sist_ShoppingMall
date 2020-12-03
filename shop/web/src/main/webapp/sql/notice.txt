@@ -1,13 +1,13 @@
 select * from notice order by n_no desc;
 alter table notice drop column m_id;
 
-INSERT INTO NOTICE VALUES(1,'°øÁö»çÇ×1','¿¬¸» ÅÃ¹è ¸ô¸²À¸·Î ÀÎÇØ ¹è¼ÛÀÌ Áö¿¬µË´Ï´Ù','2020/11/12');
-INSERT INTO NOTICE VALUES(2,'°øÁö»çÇ×2','50,000¿ø ÀÌ»ó ÁÖ¹®½Ã ¹«·á¹è¼Û ÀÌº¥Æ®!','2020/11/11');
-INSERT INTO NOTICE VALUES(3,'°øÁö»çÇ×3','»©»©·Îµ¥ÀÌ ·£´ý¹Ú½º ¾È³»','2020/11/07');
+INSERT INTO NOTICE VALUES(1,'ê³µì§€ì‚¬í•­1','ì—°ë§ íƒë°° ëª°ë¦¼ìœ¼ë¡œ ì¸í•´ ë°°ì†¡ì´ ì§€ì—°ë©ë‹ˆë‹¤','2020/11/12');
+INSERT INTO NOTICE VALUES(2,'ê³µì§€ì‚¬í•­2','50,000ì› ì´ìƒ ì£¼ë¬¸ì‹œ ë¬´ë£Œë°°ì†¡ ì´ë²¤íŠ¸!','2020/11/11');
+INSERT INTO NOTICE VALUES(3,'ê³µì§€ì‚¬í•­3','ë¹¼ë¹¼ë¡œë°ì´ ëžœë¤ë°•ìŠ¤ ì•ˆë‚´','2020/11/07');
 
 create sequence notice_seq;
 
 SELECT N_NO,N_TITLE,N_CONTENTS,TO_CHAR(N_REGDATE,'YYYY/MM/DD')N_REGDATE FROM NOTICE;
 
-INSERT INTO NOTICE VALUES(NOTICE_SEQ.NEXTVAL,'°øÁö°øÁö','¾Æ¹« °øÁö³ª ÀÏ´Ü ½á~ ¾Æ¹«°Å³ª ½Å³ª´Â°É·Î~','2020/11/25');
+INSERT INTO NOTICE VALUES(NOTICE_SEQ.NEXTVAL,'ê³µì§€ê³µì§€4ë²ˆ','ì•„ë¬´ê³µì§€ë‚˜ ì¼ë‹¨ ì¨~','2020/11/25');
 commit;

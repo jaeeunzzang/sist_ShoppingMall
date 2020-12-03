@@ -22,7 +22,8 @@ public class ProductController {
 
 	@RequestMapping(value = "productDetail.do")
 	public String productDetail(int p_no, Model model) {
-		model.addAttribute("productInfo", dao.productDetail(p_no));
+		model.addAttribute("productInfo", dao.productInfo(p_no));
+		model.addAttribute("p_Detail", dao.productDetail(p_no));
 		return "productDetail";
 	}
 

@@ -5,18 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- <link href="/web/css/bootstrap.min.css" rel="stylesheet"> -->
-<link href="/web/css/kfonts2.css" rel="stylesheet">
+<title>NO NAME</title>
 <link href="css/maincss.css" rel="stylesheet">
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/web/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var p_no = $("input[name='p_no']").val();
+		$("p#hiddenP").hide();
 		
 		$("button#review").click(function() {
 			
@@ -32,6 +31,14 @@
 				document.location.href="SignIn2.jsp";
 			}else
 			document.location.href = "qnaWrite.do?p_no=" + p_no;
+		});
+		
+		$("select#color").change(function(){
+			var color=$("select#color").val().split(",");
+			$("p#hiddenP").show();
+			$("span#selected").prepend('<br>-'+color[0]+' '+color[1]); 
+			//수량선택하는 박스는 어떻게 각각 추가할수있을까????? .each...??
+			
 		});
 	});
 </script>
@@ -49,7 +56,7 @@
 					<p>P_name ${productInfo.p_name}</p>
 					<hr>
 					<div style="width: 80%;">
-						<p>info 나이키 스우시 런 쇼츠는 가볍고 편안하며 뛰는 동안 뛰어난 통기성과 지지력을 선사합니다.${productInfo.info}</p>
+						<p>info: ${productInfo.info}나이키 스우시 런 쇼츠는 가볍고 편안하며 뛰는 동안 뛰어난 통기성과 지지력을 선사합니다.</p>
 						<p>우븐 소재로 가볍고 내구성이 우수합니다. 땀 발산 기술을 적용해 한결같은 쾌적함과 편안함을 선사합니다.</p>
 						<p>니트 안감이 지지력과 통기성을 선사합니다. 조임 끈이 달린 신축성 있는 허리밴드로 쇼츠의 핏을 조절할 수 있습니다.</p>
 					</div>
@@ -58,19 +65,30 @@
 						&#8361;
 						<span id="price">${productInfo.price}</span>
 						<span style="float: right;">
-							<select style="width: 150px;">
-								<option>옵션선택</option>
+							<select id="color" style="width: 150px;">
+								<option value="empty">색상, 사이즈 선택</option>
+								<option disabled="disabled">--------------------------------</option>
 								<c:forEach var="i" items="${p_Detail}">
-									<option value="${i.size}">${i.size}</option>
-								</c:forEach>
-							</select> <select>
-								<c:forEach var="i" begin="1" end="10">
-									<option value="${i}">${i}</option>
+									<option class="selectOption" value="${i}">[${i.p_color}] - ${i.p_size} &nbsp
+										남은수량: ${i.qtt}개</option>
 								</c:forEach>
 							</select>
 						</span>
 					</p>
 					<hr>
+					<form action="#" name="selectFrm">
+						<p id="hiddenP">${productInfo.p_name}
+							<span id="selected">
+
+								<select id="qtt">
+									<c:forEach var="i" begin="1" end="10">
+										<option value="${i}">${i}</option>
+									</c:forEach>
+								</select>
+							</span>
+						</p>
+					</form>
+					<br>
 					<span>
 						<button>BUY NOW</button>
 						<button>ADD CART</button>

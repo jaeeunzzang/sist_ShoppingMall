@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import shop.com.app.dto.NoticeBean;
 import shop.com.app.dto.ProductBean;
+import shop.com.app.dto.ProductDetailBean;
 import shop.com.app.dto.QnaBean;
 import shop.com.app.dto.ReviewBean;
 
@@ -25,7 +26,11 @@ public class ProductDao extends SqlSessionDaoSupport {
 		return this.getSqlSession().selectList("selectProductList");
 	}
 
-	public ProductBean productDetail(int p_no) {
+	public ProductBean productInfo(int p_no) {
 		return this.getSqlSession().selectOne("selectProductInfo", p_no);
+	}
+
+	public List<ProductDetailBean> productDetail(int p_no) {
+		return this.getSqlSession().selectList("selectProductDetail", p_no);
 	}
 }

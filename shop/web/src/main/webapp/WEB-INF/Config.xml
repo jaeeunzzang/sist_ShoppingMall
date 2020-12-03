@@ -11,6 +11,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="shop.com.app.dto.MemberBean" alias="member" />
 		<typeAlias type="shop.com.app.dto.ProductBean"
 			alias="product" />
+		<typeAlias type="shop.com.app.dto.ProductDetailBean"
+			alias="productDetail" />
 	</typeAliases>
 
 	<mappers>

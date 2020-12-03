@@ -22,6 +22,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 
+	<select id="selectProductDetail"
+		parameterType="java.lang.Integer" resultType="productDetail">
+		SELECT * FROM
+		PRODUCT_DETAIL
+		WHERE P_NO=#{p_no} ORDER BY P_SIZE
+	</select>
 	<insert id="insertProduct" parameterType="product">
 		INSERT INTO
 		PRODUCT
