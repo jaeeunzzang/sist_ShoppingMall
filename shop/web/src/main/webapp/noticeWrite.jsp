@@ -61,7 +61,7 @@
 												<td>
 													<div class="form-group">
 														<input type="text" name="n_title" id="new_title" class="form-control"
-															placeholder="제목을 입력해주세요" style="width: 945px">
+															placeholder="제목을 입력해주세요">
 													</div>
 												</td>
 											</tr>
@@ -88,7 +88,7 @@
 												<td>
 													<div class="form-group">
 														<input type="text" class="form-control" name="n_title" id="mod_title"
-															value="${noticeMod.n_title}" style="width: 945px"> <input type="hidden"
+															value="${noticeMod.n_title}"> <input type="hidden"
 															name="n_no" value="${noticeMod.n_no}">
 													</div>
 												</td>
