@@ -4,29 +4,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>Insert title here</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/kfonts2.css" rel="stylesheet">
-<link href="css/maincss.css" rel="stylesheet">
 <style type="text/css">
-.footer {
-	background-color: #F5F5F5;
+.py-5 {
+	background-color: #f8f8f8;
 	color: #777777;
-	text-align: left;
-	padding-left: 120px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	height: 100%;
+	width: 100%;
 }
 
-.footer_text {
-	display: inline-block;
-	float: left;
-	width: 500px;
-	height: 150px;
-	border: 0;
+.footer th {
+	padding-bottom: 10px;
+	font-size: 16px;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/web/shop/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -35,41 +33,39 @@
 </script>
 </head>
 <body>
-	<div class="footer">
-		<div class="footer1 footer_text ">
-			<h4>COMPANY</h4>
-			<p>
-				<span>COMPANY : NONAME </span>
-				<br />
-				<span>ADDRESS : 서울특별시 강남구 테헤란로 132(역삼동) 8층</span>
-				<br />
-				<span>BUSINESS LICENSE : [1234567891]</span>
-				<span></span>
-				<br />
-			</p>
-			<p>COPYRIGHT © NONAME. ALL RIGHTS RESERVED.</p>
-		</div>
-		<div class="footer2 footer_text">
-			<h4>CS CENTER</h4>
-			<p>
-				T.02-123-1234
-				<br />
-				평일 : 10:00 - 17:00 (점심시간 : 12:30 - 14:00)
-				<br />
-				주말 및 공휴일 휴무
-			</p>
-		</div>
-		<div class=footer3footer_text">
-			<h4>CONTACT</h4>
-			<p>
-				INSTAGRAM : @no_name
-				<br />
-				E-MAIL : noname@naver.com
-				<br />
-			</p>
-		</div>
-
+<footer class="py-5">
+	<div class="container">
+		<table class="footer" style="width: 100%;" class="m-2  text-white">
+			<thead>
+				<tr>
+					<th class="col" style="width: 33%; ">COMPANY</th>
+					<th class="col" style="width: 33%; ">CS CENTER</th>
+					<th class="col" style="width: 33%; ">CONTACT</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td >COMPANY : NONAME</td>
+					<td>T.02-123-1234</td>
+					<td>INSTAGRAM : @no_name</td>
+				</tr>
+				
+				<tr>
+					
+					<td>ADDRESS : 서울특별시 강남구 테헤란로132 8층</td>
+					<td>평일 : 10:00 - 17:00 (점심시간 : 12:30 - 14:00)</td>
+					<td>E-MAIL : noname@naver.com</td>
+				</tr>
+				<tr>
+					<td>BUSINESS LICENSE : [1234567891]</td>
+					<td>주말 및 공휴일 휴무</td>
+					<td>COPYRIGHT © NONAME. ALL RIGHTS RESERVED.</td>
+				</tr>
+				
+			</tbody>
+		</table>
 	</div>
+</footer>
 </body>
 </html>
 
