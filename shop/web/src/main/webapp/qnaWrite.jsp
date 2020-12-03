@@ -43,7 +43,7 @@
 						<h4 class="panel-title">Q&A</h4>
 					</div>
 					<c:choose>
-						<c:when test="${job eq 'new'}">
+						<c:when test="${job ne 'mod'}">
 							<div class="panel-body">
 								<div class="table-responsive">
 									<table class="table table-bordered">
@@ -114,7 +114,7 @@
 										<tr>
 											<td class="text-center">이름</td>
 											<td><input type="text" class="form-control" name="m_id" readonly="readonly"
-												value="${sessionScope.id}" style="width: 160px"></td>
+												value="${qnaInfo.m_id}" style="width: 160px"></td>
 										</tr>
 										<tr>
 											<td colspan="2"><textarea rows="12" class="form-control" name="q_contents">${qnaInfo.q_contents}</textarea></td>
