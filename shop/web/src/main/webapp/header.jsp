@@ -94,7 +94,7 @@ a:hover {
 						</c:when>
 						<c:otherwise>
 							<ul class="main-menu">
-								<li><a class="text-muted" href="SignIn2.jsp">LOGOUT</a></li>
+								<li><a class="text-muted" href="logout.do">LOGOUT</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>

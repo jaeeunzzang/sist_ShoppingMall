@@ -138,7 +138,7 @@ a:hover {
 						</c:when>
 						<c:otherwise>
 							<ul class="main-menu">
-								<li><a class="text-muted" href="#">LOGOUT</a></li>
+								<li><a class="text-muted" href="/web/logout.do">LOGOUT</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>
