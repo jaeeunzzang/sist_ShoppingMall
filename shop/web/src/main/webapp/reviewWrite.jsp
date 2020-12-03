@@ -11,12 +11,12 @@
 <link href="css/maincss.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/web/shop/css/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("button#save").click(function() {
-			$("form#newFrm").submit();
+			$("form[name='newFrm']").submit();
 		});
 	});
 </script>
@@ -43,17 +43,18 @@
 											</colgroup>
 											<tr>
 												<td class="text-center">제목</td>
-												<td><input type="text" class="form-control" placeholder="제목을 입력해주세요"> <input
-													type="hidden" name="p_no" value="${p_no}"></td>
+												<td><input type="text" class="form-control" placeholder="제목을 입력해주세요"
+													name="r_title"> <input type="hidden" name="p_no" value="${p_no}"></td>
 
 											</tr>
 											<tr>
 												<td class="text-center">이름</td>
-												<td><input type="text" class="form-control" readonly="readonly"
+												<td><input type="text" class="form-control" name="m_id" readonly="readonly"
 													value="${sessionScope.id}" style="width: 160px"></td>
 											</tr>
 											<tr>
-												<td colspan="2"><textarea rows="12" class="form-control" placeholder="내용을 입력해주세요"></textarea></td>
+												<td colspan="2"><textarea rows="12" class="form-control" placeholder="내용을 입력해주세요"
+														name="r_contents"></textarea></td>
 											</tr>
 											<tr>
 												<td class="text-center">첨부파일</td>
@@ -76,16 +77,17 @@
 									</colgroup>
 									<tr>
 										<td class="text-center">제목</td>
-										<td><input type="text" class="form-control" value="${reviewInfo.r_title}"><input
-											type="hidden" name="p_no" value="${reviewInfo.p_no}"></td>
+										<td><input type="text" class="form-control" name="r_title"
+											value="${reviewInfo.r_title}"><input type="hidden" name="p_no"
+											value="${reviewInfo.p_no}"></td>
 									</tr>
 									<tr>
 										<td class="text-center">이름</td>
-										<td><input type="text" class="form-control" readonly="readonly"
+										<td><input type="text" class="form-control" name="m_id" readonly="readonly"
 											value="${reviewInfo.m_id}" style="width: 160px"></td>
 									</tr>
 									<tr>
-										<td colspan="2"><textarea rows="12" class="form-control">${reviewInfo.r_contents}</textarea></td>
+										<td colspan="2"><textarea rows="12" class="form-control" name="r_contents">${reviewInfo.r_contents}</textarea></td>
 									</tr>
 									<tr>
 										<td class="text-center">첨부파일</td>

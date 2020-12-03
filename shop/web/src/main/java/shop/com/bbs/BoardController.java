@@ -80,7 +80,7 @@ public class BoardController {
 	@RequestMapping(value = "reviewInsert.do")
 	public String reviewInsertAction(ReviewBean review,
 			@RequestParam(value = "file", required = false) MultipartFile file) {
-		String loc = "C:\\Users\\qkrwo\\Desktop\\sist_ShoppingMall\\shop\\web\\src\\main\\webapp\\upload";
+		String loc = "C:\\Users\\qkrwo\\Desktop\\sist_ShoppingMall\\shop\\web\\src\\main\\webapp\\upload\\";
 		FileOutputStream fos = null;
 		String r_fileName = file.getOriginalFilename();
 		if (r_fileName.length() > 0) {
