@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<%@ taglib prefix="function" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="function"
+	uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +10,8 @@
 <title>NO NAME</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/kfonts2.css" rel="stylesheet">
-<!-- <link href="css/maincss.css" rel="stylesheet"> -->
 <style>
+
 .main-menu, .sub-menu {
 	list-style-type: none;
 	margin: 0;
@@ -42,6 +44,11 @@ a:hover {
 	padding: 10px;
 }
 
+a:link, a:visited, a:active {
+	text-decoration: none;
+	color: #646464;
+}
+
 .main-menu {
 	float: left;
 	padding: 20px;
@@ -56,7 +63,8 @@ a:hover {
 	padding-right: 110px;
 }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -70,12 +78,14 @@ a:hover {
 	<div class="container">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="mainPage.do">
-					NO
-					<br>
-					NAME
-				</a>
+				<a class="navbar-brand" href="mainPage.do"> NO <br> NAME</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>			
+				</button>
 			</div>
+
 			<div class="navbar-header2">
 				<div class="collapse navbar-collapse navbar-right navbar-1-collapse">
 					<ul class="main-menu">
