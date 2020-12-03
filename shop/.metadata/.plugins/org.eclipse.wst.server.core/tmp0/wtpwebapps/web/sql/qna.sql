@@ -1,6 +1,7 @@
 SELECT * FROM MEMBER;
 SELECT * FROM PRODUCT;
 INSERT INTO MEMBER VALUES(3,'Admin','관리자','1234','여성',SYSDATE,'SEOUL','010-1234-1234','BLACK',0,0,SYSDATE);
+INSERT INTO PRODUCT VALUES (4,'테스트치마','하의',70000,'비싼치마',0,'skirt.jpg','20/11/14');
 commit;
 
 select * from qna;
