@@ -114,7 +114,7 @@
 										<tr>
 											<td class="text-center">이름</td>
 											<td><input type="text" class="form-control" name="m_id" readonly="readonly"
-												value="${qnaInfo.m_id}" style="width: 160px"></td>
+												value="${sessionScope.id}" style="width: 160px"></td>
 										</tr>
 										<tr>
 											<td colspan="2"><textarea rows="12" class="form-control" name="q_contents">${qnaInfo.q_contents}</textarea></td>

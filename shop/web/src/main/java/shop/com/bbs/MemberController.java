@@ -3,6 +3,7 @@ package shop.com.bbs;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,5 +26,12 @@ public class MemberController {
 			return "test";
 		} else
 			return "SignIn2";
+	}
+
+	@RequestMapping(value = "logout.do")
+	public String logoutAction(HttpSession session) {
+		System.out.println(session.getAttribute("id"));
+		session.invalidate();
+		return "redirect:mainPage.do";
 	}
 }

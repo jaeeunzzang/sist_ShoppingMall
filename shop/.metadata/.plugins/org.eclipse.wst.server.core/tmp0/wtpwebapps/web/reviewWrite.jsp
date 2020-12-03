@@ -16,7 +16,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("button#save").click(function() {
-
+			$("form#newFrm").submit();
 		});
 	});
 </script>
