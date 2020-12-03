@@ -1,0 +1,9 @@
+package shop.com.app.dto;
+
+public class ProductDetailBean {
+	private int p_no;
+	private int p_size;
+	private int qtt;
+	private String p_color;
+
+}
