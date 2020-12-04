@@ -11,6 +11,10 @@
 <link href="css/kfonts2.css" rel="stylesheet">
 <link href="css/maincss.css" rel="stylesheet">
 <style>
+#findId .mainWrap {
+padding-top: 100px;
+padding-bottom: 60px;
+}
 #findId {
 	font-family: 'Lato', sans-serif;
 	background-color: #f8f8f8;
@@ -20,16 +24,19 @@
 	position: relative;
 	overflow: hidden;
 	width: 400px;
+	height: 500px; 
 	margin: 80px auto 80px;
 	background-color: #ffffff;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 
 #findId .mainWrap .container input.submit {
 	font-size: 12px;
 	line-height: 42px;
 	display: block;
-	width: 20%;
+	width: 40%;
 	height: 42px;
 	cursor: pointer;
 	vertical-align: middle;
@@ -42,11 +49,11 @@
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
 	position: relative;
-	left: 40%;
+	left: 30%;
 }
 
 #findId .mainWrap .container input.submit:hover {
-	background-color: #263238;
+	background-color: #777777;
 	color: #ffffff;
 	-moz-transition: all 0.2s;
 	-o-transition: all 0.2s;
@@ -81,17 +88,15 @@
 	<div class="wrap">
 		<div class="mainWrap">
 			<div class="container">
-				<h2>아이디찾기</h2>
-				<p>가입하신 방법에 따라 아이디 찾기가 가능합니다.</p>
-				<br>
+				<h3 align="center">아이디찾기</h3>
+				<br><br>
 				<form action="">
 					<div>
-						<h4>아이디찾기</h4>
 						<p>
 							<input id="check_method1" name="check_method" value="2" type="radio" checked="checked">
 							<label for="check_method1">이메일</label>
 							<input id="check_method2" name="check_method" value="3" type="radio">
-							<label for="check_method2">휴대폰번호</label>
+							<label for="check_method2">휴대폰번호</label><br><br>
 						</p>
 						<table class="table">
 							<col style="width: 170px;">

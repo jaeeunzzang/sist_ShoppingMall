@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>NO NAME</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -13,7 +14,7 @@
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- <script src="js/bootstrap.min.js"></script> -->
+<script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style>
@@ -70,8 +71,10 @@ a:hover {
 	padding-right: 110px;
 }
 
+/* 상품이미지 */
 .product {
 	padding-bottom: 30px;
+ 
 }
 
 /* 캐러셀 */
@@ -87,25 +90,7 @@ a:hover {
 	height: 500px;
 }
 
-/*푸터  */
-.footer {
-	background-color: #F5F5F5;
-	color: #777777;
-	text-align: left;
-	padding-left: 120px;
-	padding-top: 40px;
-	bottom: 0;
-	position: relative;
-	height: 200px;
-}
 
-.footer_text {
-	display: inline-block;
-	float: left;
-	width: 500px;
-	height: 150px;
-	border: 0;
-}
 </style>
 </head>
 <body>
@@ -119,6 +104,11 @@ a:hover {
 					<br>
 					NAME
 				</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>			
+				</button>
 			</div>
 			<div class="navbar-header2">
 				<div class="collapse navbar-collapse navbar-right navbar-1-collapse">
@@ -243,39 +233,8 @@ a:hover {
 		</div>
 	</div>
 
-	<div class="footer">
-		<div class="footer1 footer_text ">
-			<h4>COMPANY</h4>
-			<p>
-				<span>COMPANY : NONAME </span>
-				<br />
-				<span>ADDRESS : 서울특별시 강남구 테헤란로 132(역삼동) 8층</span>
-				<br />
-				<span>BUSINESS LICENSE : [1234567891]</span>
-				<span></span>
-				<br />
-			</p>
-			<p>COPYRIGHT © NONAME. ALL RIGHTS RESERVED.</p>
-		</div>
-		<div class="footer2 footer_text">
-			<h4>CS CENTER</h4>
-			<p>
-				T.02-123-1234
-				<br />
-				평일 : 10:00 - 17:00 (점심시간 : 12:30 - 14:00)
-				<br />
-				주말 및 공휴일 휴무
-			</p>
-		</div>
-		<div class="footer3footer_text">
-			<h4>CONTACT</h4>
-			<p>
-				INSTAGRAM : @no_name
-				<br />
-				E-MAIL : noname@naver.com
-				<br />
-			</p>
-		</div>
-	</div>
+	<!-- 푸터 -->
+	<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>

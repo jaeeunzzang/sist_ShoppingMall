@@ -12,10 +12,10 @@
 .py-5 {
 	background-color: #f8f8f8;
 	color: #777777;
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width:100%;
 	height: 100%;
-	width: 100%;
 }
 
 .footer th {

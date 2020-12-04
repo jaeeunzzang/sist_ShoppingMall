@@ -41,11 +41,8 @@ a:hover {
 <body>
 	<div class="wrap">
 		<div class="mainWrap"> 
-			<div class="mainContents">
-				<div class="container">
-					<div class="jumbotron text-center" style="background-color: white">
-						<h1>ADMIN PAGE</h1>
-					</div>
+			<div class="mainContents">			
+						<h1 align="center">ADMIN PAGE</h1><br><br>
 					<div class="row">
 						<div class="col-lg-4">
 							<a href="userManegement.jsp">
