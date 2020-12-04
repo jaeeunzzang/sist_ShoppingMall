@@ -21,18 +21,17 @@
 <body>
 	<div class="wrap">
 		<div class="mainWrap">
-			<div class="container">
-				<div class="jumbotron text-center" style="background-color: white">
-					<h1>재고관리</h1>
-				</div>
-				<form class="navbar-form text-center" action="#">
-					<nav class="navbar">
-						<select class="form-control pull-left" id="year">
+			<div class="mainContents">
+				<h1 align="center">재고관리</h1>
+				<br> <br>
+				
+					<form role="form" class="form-inline text-center">
+						<select class="form-control" id="year">
 							<option value="1">2020</option>
 							<option value="2">2019</option>
 							<option value="3">2018</option>
 							<option value="4">2017</option>
-						</select> <select class="form-control pull-left" id="month">
+						</select> <select class="form-control " id="month">
 							<option value="1">01</option>
 							<option value="2">02</option>
 							<option value="3">03</option>
@@ -45,7 +44,7 @@
 							<option value="10">10</option>
 							<option value="11">11</option>
 							<option value="12">12</option>
-						</select> <select class="form-control pull-left" id="day">
+						</select> <select class="form-control id="day">
 							<option value="1">01</option>
 							<option value="2">02</option>
 							<option value="3">03</option>
@@ -76,33 +75,26 @@
 							<option value="28">28</option>
 							<option value="29">29</option>
 							<option value="30">30</option>
-						</select> <select class="form-control">
+						</select> 
+						<select class="form-control">
 							<option value="1">전체</option>
 							<option value="2">상품번호</option>
 							<option value="3">상품명</option>
 							<option value="4">상품분류</option>
-						</select> <input type="text" class="form-control" placeholder="검색어를 입력하세요." style="width: 230px">
-						<button type="submit" class="btn btn-default">검색</button>
-					</nav>
-				</form>
+						</select> 
+						<input type="text" class="form-control input-s">
+						<button type="button" class="btn btn-default btn-s">검색</button>
+					</form>
+					<br><br>
 
-				<form action="#" method="POST" name="frmM">
-					<br>
-					<br>
-					<br>
-					<div class="container">
-						<div class="navbar navbar-right">
-							<button class="btn">
-								<span class="glyphicon glyphicon-remove"></span>
-								삭제
-							</button>
-							<button class="btn">
-								<span class="glyphicon glyphicon-floppy-disk"></span>
-								저장
-							</button>
-						</div>
+				<form role="form" class="form-inline pull-right">
+	
+					<button type="button" class="btn btn-default btn-s glyphicon glyphicon-remove">삭제</button>
+					<button type="button" class="btn btn-default btn-s glyphicon glyphicon-floppy-disk">저장</button>						
+				</form>
+				<br><br>
 						<table class="table table-hover table-bordered">
-							<thead style="background-color: #969696">
+							<thead style="background-color: #eeeeee">
 								<tr>
 									<th class="text-center"><input type="checkbox"></th>
 									<th class="text-center">No</th>
@@ -131,9 +123,9 @@
 								</tr>
 							</tbody>
 						</table>
-					</div>
-				</form>
-				<div class="container text-center">
+				
+				
+				<div class="text-center">
 					<ul class="pagination">
 						<li><a href="#">
 								<span class="glyphicon glyphicon-chevron-left"></span>
