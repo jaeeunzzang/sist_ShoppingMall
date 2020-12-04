@@ -5,7 +5,8 @@
   **나머지는 /web/shop/ ~~ 잡다한거 다 붙일필요없이**              
   **- img/cat.jpg**         
   **- action.do 이런식으로 통일**       
-  
+* * *
+* **DB는 sql폴더 안에 projectTable.txt 파일 실행하구 db 변경본 실행해주세요**
 * * *
 * **git status -> 현재 상태**    :+1:
 * * *
