@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>NO NAME</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -74,7 +75,6 @@ a:hover {
 /* 상품이미지 */
 .product {
 	padding-bottom: 30px;
- 
 }
 
 /* 캐러셀 */
@@ -89,8 +89,6 @@ a:hover {
 	min-width: 100%;
 	height: 500px;
 }
-
-
 </style>
 </head>
 <body>
@@ -104,10 +102,11 @@ a:hover {
 					<br>
 					NAME
 				</a>
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>			
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
 			</div>
 			<div class="navbar-header2">
@@ -189,52 +188,23 @@ a:hover {
 
 
 	<!-- 상품이미지 -->
-	<div class="container">
+	<div class="container" style="margin-top: 400px;">
 		<div class="row product">
 
-			<c:forEach var="i" items="${pList}">
-				<div class="col-md-4" style="width: 390px">
+			<c:forEach var="i" items="${pList}" varStatus="cnt">
+
+				<div class="col-md-4" style="width: 390px; padding-bottom: 50px;">
 					<a href="/web/productDetail.do?p_no=${i.p_no}">
 						<img class="card-img-top" src="mainPage/img/${i.p_fileName}" width=100% height="450">
 					</a>
 				</div>
 			</c:forEach>
 
-			<div class="col-md-4" style="width: 390px">
-				<a href="/web/productDetail.do?p_no=1">
-					<img class="card-img-top" src="mainPage/img/7.jpg" width=100% height="450">
-				</a>
-			</div>
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="mainPage/img/skirt.jpg" width=100% height="450">
-			</div>
-		</div>
-		<div class="row product">
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="mainPage/img/denim.jpg" width=100% height="450">
-			</div>
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="mainPage/img/e.jpg" width=100% height="450">
-			</div>
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="mainPage/img/knit.jpg" width=100% height="450">
-			</div>
-		</div>
-		<div class="row product">
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="mainPage/img/trouser.jpg" width=100% height="450">
-			</div>
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="mainPage/img/5.jpg" width=100% height="450">
-			</div>
-			<div class="col-md-4" style="width: 390px">
-				<img class="card-img-top" src="mainPage/img/4.jpg" width=100% height="450">
-			</div>
 		</div>
 	</div>
 
 	<!-- 푸터 -->
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="../footer.jsp"></jsp:include>
 
 </body>
 </html>

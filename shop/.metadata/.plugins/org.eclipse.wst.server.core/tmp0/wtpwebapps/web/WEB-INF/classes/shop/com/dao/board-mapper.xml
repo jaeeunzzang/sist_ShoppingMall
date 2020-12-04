@@ -79,7 +79,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertQna" parameterType="qna">
 		INSERT INTO
 		QNA(Q_NO,Q_TITLE,M_ID,Q_CONTENTS,Q_REGDATE,STATE,SECRET,Q_PNUM,P_NO)
-		VALUES(QNA_SEQ.NEXTVAL,#{m_id},#{q_contents},SYSDATE,#{state},#{secret},#{q_pnum},#{p_no})
+		VALUES(QNA_SEQ.NEXTVAL,#{q_title},#{m_id},#{q_contents},SYSDATE,#{state},#{secret},#{q_pnum},#{p_no})
 	</insert>
 
 	<update id="updateQna" parameterType="qna">

@@ -149,6 +149,6 @@ public class BoardController {
 	@RequestMapping(value = "qnaInsert.do")
 	public String qnaInsertAction(QnaBean qna) {
 		dao.insertQna(qna);
-		return "qna";
+		return "redirect:qnaList.do";
 	}
 }
