@@ -146,9 +146,23 @@ public class BoardController {
 		return "qnaWrite";
 	}
 
+	@RequestMapping(value = "qnaAdminWrite.do")
+	public String qnaAdminWriteAction(int q_no, Model model) {
+		model.addAttribute("q_pnum", q_no);
+		model.addAttribute("state", "re");
+		return "qnaWrite";
+	}
+
 	@RequestMapping(value = "qnaInsert.do")
 	public String qnaInsertAction(QnaBean qna) {
 		dao.insertQna(qna);
 		return "redirect:qnaList.do";
+	}
+
+	@RequestMapping(value = "qnaModify.do")
+	public String qnaModifyAction(int q_no, Model model) {
+		model.addAttribute("qnaInfo", dao.selectQnaInfo(q_no));
+		System.out.println(model);
+		return "qnaWrite";
 	}
 }

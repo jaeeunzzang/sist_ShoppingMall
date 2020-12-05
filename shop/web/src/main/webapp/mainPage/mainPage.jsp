@@ -188,7 +188,7 @@ a:hover {
 
 
 	<!-- 상품이미지 -->
-	<div class="container" style="margin-top: 400px;">
+	<div class="container">
 		<div class="row product">
 
 			<c:forEach var="i" items="${pList}" varStatus="cnt">
