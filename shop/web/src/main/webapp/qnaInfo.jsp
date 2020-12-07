@@ -14,9 +14,7 @@
 <script src="/web/shop/css/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-
-	});
+	
 </script>
 
 </head>
@@ -54,7 +52,7 @@
 								</tr>
 								<tr>
 									<td class="text-center">첨부파일</td>
-									<td>${qInfo.q_fileName}</td>
+									<td>${qInfo.p_fileName}</td>
 								</tr>
 
 							</table>
@@ -66,6 +64,11 @@
 							<a href="qnaList.do">
 								<button type="button" class="btn btn-default btn-s">목록</button>
 							</a>
+							<c:if test="${sessionScope.id eq 'Admin'}">
+								<a href="qnaAdminWrite.do?q_no=${qInfo.q_no}">
+									<button type="button" class="btn btn-default btn-s">답글달기</button>
+								</a>
+							</c:if>
 						</form>
 					</div>
 				</div>

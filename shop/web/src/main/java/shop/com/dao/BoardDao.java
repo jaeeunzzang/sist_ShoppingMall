@@ -76,6 +76,10 @@ public class BoardDao extends SqlSessionDaoSupport {
 		this.getSqlSession().insert("insertQna", qna);
 	}
 
+	public void insertQnaReply(QnaBean qna) {
+		this.getSqlSession().insert("insertQnaReply", qna);
+	}
+
 	public void updateQna(QnaBean qna) {
 		this.getSqlSession().update("updateQna", qna);
 	}

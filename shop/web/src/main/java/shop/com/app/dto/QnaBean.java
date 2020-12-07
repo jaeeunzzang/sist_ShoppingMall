@@ -11,6 +11,7 @@ public class QnaBean {
 	// 밑부터 새로추가한 db column
 	private int q_pnum; // 부모번호
 	private int p_no;// 상품번호
+	private int lev; // 답글의 순서
 	private String state; // 새글답글여부
 	private String secret; // 비밀글여부
 
@@ -94,11 +95,19 @@ public class QnaBean {
 		this.p_fileName = p_fileName;
 	}
 
+	public int getLev() {
+		return lev;
+	}
+
+	public void setLev(int lev) {
+		this.lev = lev;
+	}
+
 	@Override
 	public String toString() {
 		return "QnaBean [q_no=" + q_no + ", m_id=" + m_id + ", q_title=" + q_title + ", q_contents=" + q_contents
-				+ ", q_regdate=" + q_regdate + ", q_pnum=" + q_pnum + ", p_no=" + p_no + ", state=" + state
-				+ ", secret=" + secret + ", p_fileName=" + p_fileName + "]";
+				+ ", q_regdate=" + q_regdate + ", p_fileName=" + p_fileName + ", q_pnum=" + q_pnum + ", p_no=" + p_no
+				+ ", lev=" + lev + ", state=" + state + ", secret=" + secret + "]";
 	}
 
 }

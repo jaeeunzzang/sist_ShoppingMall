@@ -9,7 +9,7 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="shop.com.app.dto.QnaBean"/>
 <fullyQualifiedTypeName name="shop.com.app.dto.ProductBean"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpRequest"/>
 <fullyQualifiedTypeName name="shop.com.app.dto.ProductDetailBean"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>

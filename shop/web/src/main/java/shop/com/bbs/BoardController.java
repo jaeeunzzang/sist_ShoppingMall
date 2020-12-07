@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -128,14 +129,48 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "qnaList.do")
-	public String qnaListAction(Model model) {
+	public String qnaListAction(Model model,
+			@RequestParam(value = "alert", required = false, defaultValue = "public") String alert) {
 		model.addAttribute("qnaList", dao.selectQna());
+		model.addAttribute("alert", alert);
 		return "qna";
 	}
 
 	@RequestMapping(value = "qnaInfo.do")
-	public String qnaInfoAction(int q_no) {
-		dao.selectQnaInfo(q_no);
+	public String qnaInfoAction(int q_no, Model model, HttpSession session) {
+
+		QnaBean qna = dao.selectQnaInfo(q_no);
+		// System.out.println("get sessionId:" + session.getAttribute("id"));
+		// System.out.println("qna m_id: " + qna.getM_id());
+		model.addAttribute("qInfo", qna);
+
+		if (qna.getSecret().equals("private")) { // 비밀글일때
+			// System.out.println("private check");
+			if (session.getAttribute("id") == null) {
+				// System.out.println("session null");
+				return "redirect:qnaList.do?alert=secret";
+			}
+			if (qna.getM_id().equals(session.getAttribute("id"))) {
+				// System.out.println("session, m_id equals");
+				return "qnaInfo";
+
+			} else if (session.getAttribute("id").equals("Admin")) {
+				// System.out.println("session id Admin yes");
+				return "qnaInfo";
+			} else {
+				// System.out.println(" session, id not equal ");
+				return "redirect:qnaList.do?alert=secret";
+			}
+		}
+		// if (qna.getSecret().equals("private")){// secret이 private일때
+		// if(!(qna.getM_id().trim().equals(session.getAttribute("id")))
+		// ||!(session.getAttribute("id").equals("Admin"))) {
+		// System.out.println("session Check no");
+		// return "redirect:qnaList.do?alert=secret";
+		// }else{// m_id가 로그인되어있는 아이디와 같거나 admin계정일때
+		// System.out.println("session equals yes");
+		// return "qnaInfo"; } } // if
+
 		return "qnaInfo";
 	}
 
@@ -148,14 +183,25 @@ public class BoardController {
 
 	@RequestMapping(value = "qnaAdminWrite.do")
 	public String qnaAdminWriteAction(int q_no, Model model) {
-		model.addAttribute("q_pnum", q_no);
 		model.addAttribute("state", "re");
-		return "qnaWrite";
+		model.addAttribute("q_no", q_no);
+		return "qnaReplyWrite";
 	}
 
-	@RequestMapping(value = "qnaInsert.do")
+	@RequestMapping(value = "qnaInsert.do") // 새글작성시
 	public String qnaInsertAction(QnaBean qna) {
+		System.out.println("first qna:" + qna);
 		dao.insertQna(qna);
+		return "redirect:qnaList.do";
+	}
+
+	@RequestMapping(value = "qnaReplyInsert.do") // 답글작성시
+	public String qnaReplyInsertAction(QnaBean qna) {
+		System.out.println("reply qna:" + qna);
+		QnaBean qnaBean = dao.selectQnaInfo(qna.getQ_pnum()); // 부모글의 정보를 받아와서 qnaBean에 저장
+		qna.setP_no(qnaBean.getP_no()); // 부모글의 상품번호를 받아와서 현재글의 상품번호로 설정
+		System.out.println("reply second qna:" + qna);
+		dao.insertQnaReply(qna);
 		return "redirect:qnaList.do";
 	}
 
