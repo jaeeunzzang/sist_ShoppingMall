@@ -37,12 +37,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		N_NO=#{n_no}
 	</delete>
 
-	<select id="selectNoticeSearch">
-		SELECT*FROM NOTICE
+	<select id="selectNoticeSearch"
+		parameterType="java.util.HashMap" resultType="notice">
+		SELECT * FROM NOTICE
 		<include refid="search"></include>
 		ORDER BY
 		N_NO DESC
 	</select>
+
 	<select id="selectReview" resultType="review">
 		SELECT
 		R_NO,M_ID,R_TITLE,R_CONTENTS,TO_CHAR(R_REGDATE,'YYYY-MM-DD')R_REGDATE,R_FILENAME

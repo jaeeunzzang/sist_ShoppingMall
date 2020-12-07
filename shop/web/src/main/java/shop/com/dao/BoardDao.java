@@ -43,7 +43,7 @@ public class BoardDao extends SqlSessionDaoSupport {
 		this.getSqlSession().delete("deleteNotice", n_no);
 	}
 
-	public List<NoticeBean> selectNoticeSearch(HashMap<String, Object> map) {
+	public List<NoticeBean> selectNoticeSearch(HashMap<String, Object> map) throws Exception {
 		return this.getSqlSession().selectList("selectNoticeSearch", map);
 	}
 

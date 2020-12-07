@@ -52,7 +52,7 @@
 					<img alt=".." src="img/${productInfo.p_fileName}">
 				</div>
 				<div id="right-box">
-					<input type="hidden" name="p_no" value="1">
+					<input type="hidden" name="p_no" value="${productInfo.p_no}">
 					<p>P_name ${productInfo.p_name}</p>
 					<hr>
 					<div style="width: 80%;">

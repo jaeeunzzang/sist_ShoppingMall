@@ -18,7 +18,7 @@
 		});
 		$("button#search").click(function() {
 			if ($("input[name='data']").val().length < 1) {
-				$("input[name='data']").val("공지");
+				$("input[name='data']").val("");
 			}
 			$("form[name='searchFrm']").submit();
 		});

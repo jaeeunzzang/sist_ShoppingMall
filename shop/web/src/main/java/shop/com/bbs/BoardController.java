@@ -71,9 +71,13 @@ public class BoardController {
 	@RequestMapping(value = "noticeSearch.do")
 	public String noticeSearchAction(String query, String data, Model model) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put(query, data);
-		System.out.println(map);
-		model.addAttribute("notice", dao.selectNoticeSearch(map));
+		map.put("query", query);
+		map.put("data", data);
+		try {
+			model.addAttribute("notice", dao.selectNoticeSearch(map));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "notice";
 	}
 
