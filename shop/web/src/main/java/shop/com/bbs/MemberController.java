@@ -1,10 +1,13 @@
 package shop.com.bbs;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,6 +58,36 @@ public class MemberController {
 			str = "YES";	
 		}
 		return str;
+	}
+	
+	//2020-12-08
+	@RequestMapping(value="memberList.do") //리스트뽑기
+	public String memberList() {
+		return "userManegement";
+	}
+	
+	@RequestMapping(value="memberSearch.do") //검색
+	public String memberInfo(@RequestParam(value="searchTarget", defaultValue="전체")String target,@RequestParam(value="searchText",defaultValue="")String text, Model model) {
+		if(target.equals("전체")) {
+			model.addAttribute("userList", dao.memberInfoList());
+		}
+		else if(target.equals("회원번호")) {
+			int no=Integer.parseInt(text);
+			model.addAttribute("userList", dao.memberInfo(no));
+		}else {
+			model.addAttribute("userList", dao.memberInfo(text));
+		}
+		return "redirect:memberList.do";
+	}
+	
+	@RequestMapping(value="sortUserList.do") //정렬
+	public String sortList(@RequestParam("sort")String stm,Model model) {
+		if(stm.equals("이름순")) {
+			model.addAttribute("userList", dao.memberSort(1));
+		}else {
+			model.addAttribute("userList", dao.memberSort(2));
+		}
+		return "redirect:memberList.do";
 	}
 
 }
