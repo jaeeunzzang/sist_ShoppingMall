@@ -20,4 +20,14 @@ public class MemberDao extends SqlSessionDaoSupport {
 		// System.out.println("result"+result);
 		return (result == null) ? false : true;
 	}
+	
+	public int idCheck(String id) {
+		//int result = 
+		int result = getSqlSession().selectOne("idCheck", id);
+		return result;
+	}
+	
+	public void signUp(MemberBean bean) {
+		this.getSqlSession().insert("signUp", bean);
+	}
 }

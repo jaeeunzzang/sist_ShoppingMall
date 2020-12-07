@@ -18,7 +18,6 @@ INDEX VERSION 1.131+C:\Users\qkrwo\Desktop\sist_ShoppingMall\shop\.metadata\.plu
 643423820.index
 1026287560.index
 2196206729.index
-2498098500.index
 2939316766.index
 2677415915.index
 1911851323.index
@@ -35,7 +34,6 @@ INDEX VERSION 1.131+C:\Users\qkrwo\Desktop\sist_ShoppingMall\shop\.metadata\.plu
 1032531137.index
 1602358463.index
 1753104455.index
-1243057733.index
 2967456691.index
 2180250780.index
 3937897218.index

@@ -37,13 +37,70 @@
 	border-radius: 2px;
 	position: relative;
 	left: 20%;
+}
+.birth{
+	width: 50px;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/web/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
+function openZipSearch(){
+	new daum.Postcode({
+		oncomplete: function(data) {
+			$('#postcode1').val(data.zonecode); // 우편번호 (5자리)
+			$('#addr1').val(data.address);
+			$('#addr2').val(data.buildingName);
+		}
+	}).open();
+}
 	$(function() {
+		//아이디 중복체크
+		$('#m_id').blur(function(){
+	        $.ajax({
+		     type:"POST",
+		     url:"sameIdCheck.do",
+		     data:{
+		            "id":$('#m_id').val()
+		     },
+		     success:function(data){	//data : checkSignup에서 넘겨준 결과값
+		            if($.trim(data)=="YES"){
+		               if($('#m_id').val()!=''){ 
+		               	alert("사용가능한 아이디입니다.");
+		               }
+		           	}else{
+		               if($('#m_id').val()!=''){
+		                  alert("중복된 아이디입니다.");
+		                  $('#m_id').val('');
+		                  $('#m_id').focus();
+		               }
+		            }
+		         }
+		    }) 
+	     })
+
 		
+		
+		$('#signUp').click(function(){
+			//비밀번호 유효성체크
+			if($('#m_pw').val()==$('#m_pw_confirm').val()){
+			}else alert('비밀번호를 다시한번 확인하세요.');
+			
+			var m_addr = $("#postcode1").val()+$("#addr1").val()+$("#addr2").val();
+			var hp = $("#mobile1").val()+"-"+$("#mobile2").val()+"-"+$("#mobile3").val();
+			var birth = $("#birth_year").val()+"-"+$("#birth_month").val()+"-"+$("#birth_day").val();
+			$("#m_addr").val(m_addr);
+			$("#hp").val(hp);
+			$("#birth").val(birth);
+			
+			//필수항목 체크
+			if($("#m_id").val().length==0||$("#m_pw").val().length==0||$("#addr1").val().length==0||$("#addr2").val().length==0||
+					$("#mobile1").val().length==0||$("#mobile2").val().length==0||$("#mobile3").val().length==0) alert('필수항목을 입력하세요.');
+			//submit
+			$("#signUpFrm").submit();
+		});
 	});
 </script>
 
@@ -54,7 +111,7 @@
 		<div class="mainWrap">
 			<div class="mainContents">
 				<h1 align="center">Create Account</h1><br><br><br><br>
-				<form action="">
+				<form id="signUpFrm" action="signUp.do" method="post">
 					<h4>기본정보</h4><br><br>
 					<p>
 						<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
@@ -72,17 +129,18 @@
 										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"
 									>
 									</th>
-									<td><input id="member_id" name="member_id" class="inputTypeText" placeholder=""
+									<td><input id="m_id" name="m_id" class="inputTypeText" placeholder=""
 											value="" type="text"
-										> (영문소문자/숫자, 4~16자)</td>
+										> (영문소문자/숫자, 4~16자)
+										<div class="check_font" id="id_check"></div></td>
 								</tr>
 								<tr>
 									<th scope="row">비밀번호 <img class="reqImg"
 										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"
 									>
 									</th>
-									<td><input id="member_id" name="member_pw" class="inputTypeText" placeholder=""
-											value="" type="text"
+									<td><input id="m_pw" name="m_pw" class="inputTypeText" placeholder=""
+											value="" type="password"
 										> (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자)</td>
 								</tr>
 								<tr>
@@ -90,15 +148,38 @@
 										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"
 									>
 									</th>
-									<td><input id="member_id" name="member_pw_confirm" class="inputTypeText"
-											placeholder="" value="" type="text"
+									<td><input id="m_pw_confirm" name="m_pw_confirm" class="inputTypeText"
+											placeholder="" value="" type="password"
 										></td>
 								</tr>
 								<tr>
-									<th scope="row">주소</th>
+									<th scope="row">이름 <img class="reqImg"
+										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"
+									>
+									</th>
+									<td>
+									<input id="m_name" name="m_name" class="inputTypeText" type="text">
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">성별<img class="reqImg"
+										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"
+									>
+									</th>
+									<td>
+										<select id="gender" name="gender">
+											<option value="남성">남성</option>
+											<option value="여성">여성</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">주소<img class="reqImg"
+										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"
+									></th>
 									<td><input id="postcode1" name="postcode1" class="" placeholder=""
 											readonly="readonly" maxlength="14" value="" type="text"
-										> <a href="#none" onclick="" id="postBtn"> <img
+										> <a href="#none" onclick="openZipSearch()" id="postBtn"> <img
 											src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif" alt="우편번호"
 										>
 									</a> <br> <input id="addr1" name="addr1" class="" placeholder="" readonly="readonly"
@@ -106,35 +187,7 @@
 										> 기본주소 <br> <input id="addr2" name="addr2" class="" placeholder="" value=""
 											type="text"
 										> 나머지주소(선택입력가능)</td>
-								<tr class="">
-									<th scope="row">일반전화 <img class="reqImg"
-										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone"
-										alt="필수"
-									>
-									</th>
-									<td><select id="phone1" name="phone[]">
-											<option value="02">02</option>
-											<option value="031">031</option>
-											<option value="032">032</option>
-											<option value="033">033</option>
-											<option value="041">041</option>
-											<option value="042">042</option>
-											<option value="043">043</option>
-											<option value="044">044</option>
-											<option value="051">051</option>
-											<option value="052">052</option>
-											<option value="053">053</option>
-											<option value="054">054</option>
-											<option value="055">055</option>
-											<option value="061">061</option>
-											<option value="062">062</option>
-											<option value="063">063</option>
-											<option value="064">064</option>
-											<option value="070">070</option>
-									</select> - <input id="phone2" name="phone[]" maxlength="4" value="" type="text" class="tel">
-										- <input id="phone3" name="phone[]" maxlength="4" value="" type="text" class="tel">
-									</td>
-								</tr>
+								
 								<tr class="">
 									<th scope="row">휴대전화 <img class="reqImg"
 										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="" alt="필수"
@@ -151,13 +204,6 @@
 										- <input id="mobile3" name="mobile[]" maxlength="4" value="" type="text" class="tel">
 									</td>
 								</tr>
-								<tr>
-									<th scope="row">이메일 <img class="reqImg"
-										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"
-									>
-									</th>
-									<td><input id="email1" name="email1" value="" type="text"></td>
-								</tr>
 							</tbody>
 						</table>
 					</div><br><br>
@@ -170,29 +216,30 @@
 							</colgroup>
 							<tbody>
 								<tr class="">
-									<th scope="row">생년월일 <img class="reqImg"
-										src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone"
-										alt="필수"
-									>
+									<th scope="row">생년월일
 									</th>
-									<td><input id="birth_year" name="birth_year" class="tel" maxlength="4" value=""
+									<td><input id="birth_year" name="birth_year" class="birth" maxlength="4" value=""
 											type="text"
-										> 년 <input id="birth_month" name="birth_month" class="tel" maxlength="2" value=""
+										> 년 <input id="birth_month" name="birth_month" class="birth" maxlength="2" value=""
 											type="text"
-										> 월 <input id="birth_day" name="birth_day" class="tel" maxlength="2" value=""
+										> 월 <input id="birth_day" name="birth_day" class="birth" maxlength="2" value=""
 											type="text"
 										> 일</td>
+										<input id="birth" name="birth" type="hidden">
+										<input id="m_addr" name="m_addr" type="hidden">
+										<input id="hp" name="hp" type="hidden">
+										
 								</tr>
 							</tbody>
 						</table>
 					</div><br><br>
+				</form>
 					
 						<div class="submit-wrap" align="center">
-							<input type="submit" value="회원가입" class="submit" style="width: 20%; height: 42px;"> 
+							<input type="button" id="signUp" value="회원가입" class="submit" style="width: 20%; height: 42px;"> 
 						</div>
 						<br>
 					</div>
-				</form>
 			</div>
 		</div>
 		<div>

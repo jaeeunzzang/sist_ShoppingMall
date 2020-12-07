@@ -1998,3 +1998,14 @@
 0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:04:45 +0900] "GET /web/shop/js/bootstrap.min.js HTTP/1.1" 404 847
 0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:04:45 +0900] "GET /web/shop/js/bootstrap.min.js HTTP/1.1" 404 847
 0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:04:47 +0900] "POST /web/noticeSearch.do HTTP/1.1" 500 14821
+127.0.0.1 - - [07/Dec/2020:22:30:34 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:35 +0900] "GET /web/mainPage/index.jsp HTTP/1.1" 200 630
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:35 +0900] "GET /web/mainPage.do HTTP/1.1" 200 7389
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:35 +0900] "GET /web/shop/js/bootstrap.min.js HTTP/1.1" 404 847
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:35 +0900] "GET /web/shop/js/bootstrap.min.js HTTP/1.1" 404 847
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:35 +0900] "GET /web/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 858
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:35 +0900] "GET /web/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 857
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:43 +0900] "GET /web/noticeList.do HTTP/1.1" 200 7840
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:43 +0900] "GET /web/shop/js/bootstrap.min.js HTTP/1.1" 404 847
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:43 +0900] "GET /web/shop/js/bootstrap.min.js HTTP/1.1" 404 847
+0:0:0:0:0:0:0:1 - - [07/Dec/2020:22:30:49 +0900] "POST /web/noticeSearch.do HTTP/1.1" 500 14821
