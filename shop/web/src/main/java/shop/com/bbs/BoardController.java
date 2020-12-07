@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -128,15 +129,31 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "qnaList.do")
-	public String qnaListAction(Model model) {
+	public String qnaListAction(Model model,
+			@RequestParam(value = "alert", required = false, defaultValue = "public") String alert) {
 		model.addAttribute("qnaList", dao.selectQna());
+		System.out.println(alert);
+		model.addAttribute("alert", alert);
 		return "qna";
 	}
 
 	@RequestMapping(value = "qnaInfo.do")
-	public String qnaInfoAction(int q_no) {
-		dao.selectQnaInfo(q_no);
-		return "qnaInfo";
+	public String qnaInfoAction(int q_no, Model model, HttpSession session) {
+		System.out.println("get sessionId:" + session.getId());
+		QnaBean qna = new QnaBean();
+		qna = dao.selectQnaInfo(q_no);
+		System.out.println("board cont qna:" + qna);
+
+		if (qna.getSecret().equals("private")) {
+			if (qna.getM_id().equals(session.getId()) || session.getId().equals("Admin")) {
+				model.addAttribute("qInfo", dao.selectQnaInfo(q_no));
+				return "qnaInfo";
+			}
+		} else if (qna.getSecret().equals("public")) {
+			model.addAttribute("qInfo", dao.selectQnaInfo(q_no));
+			return "qnaInfo";
+		}
+		return "redirect:qnaList.do?alert=secret";
 	}
 
 	@RequestMapping(value = "qnaWrite.do")

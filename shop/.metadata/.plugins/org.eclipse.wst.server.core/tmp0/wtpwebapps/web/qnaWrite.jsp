@@ -63,7 +63,7 @@
 													<div class="form-group">
 														<input type="text" class="form-control" name="q_title" placeholder="제목을 입력해주세요"
 															style="width: 945px"> <input type="hidden" name="p_no" value="${p_no}">
-														<input type="hidden" name="state" value="new"> <input type="hidden"
+														<input type="hidden" name="state" value="${state}"> <input type="hidden"
 															name="q_pnum">
 													</div>
 												</td>

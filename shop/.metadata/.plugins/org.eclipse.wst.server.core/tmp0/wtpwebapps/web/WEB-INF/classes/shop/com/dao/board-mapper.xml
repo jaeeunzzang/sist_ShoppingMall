@@ -73,7 +73,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="selectQnaInfo" parameterType="java.lang.Integer"
 		resultType="qna">
-		SELECT * FROM QNA WHERE Q_NO=#{q_no}
+		SELECT Q_NO,Q_TITLE,M_ID,Q_CONTENTS,TO_CHAR(Q_REGDATE,'YYYY-MM-DD')Q_REGDATE,STATE,SECRET,Q_PNUM,P_FILENAME
+		FROM QNA,PRODUCT WHERE Q_NO=#{q_no} AND QNA.P_NO=PRODUCT.P_NO
 	</select>
 
 	<insert id="insertQna" parameterType="qna">
