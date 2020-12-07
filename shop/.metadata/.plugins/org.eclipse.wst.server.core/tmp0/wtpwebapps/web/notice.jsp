@@ -16,6 +16,12 @@
 		$("button#write").click(function() {
 			document.location.href = 'noticeWrite.do?job=new';
 		});
+		$("button#search").click(function() {
+			if ($("input[name='data']").val().length < 1) {
+				$("input[name='data']").val("공지");
+			}
+			$("form[name='searchFrm']").submit();
+		});
 	});
 </script>
 
@@ -28,13 +34,13 @@
 				<h1 align="center">NOTICE</h1>
 				<br>
 				<br>
-				<form role="form" class="form-inline pull-right">
-					<select class="form-control">
-						<option>제목</option>
-						<option>내용</option>
-						<option>이름</option>
-					</select> <input type="text" class="form-control input-s">
-					<button type="button" class="btn btn-default btn-s">찾기</button>
+				<form role="form" class="form-inline pull-right" action="noticeSearch.do" name="searchFrm"
+					method="post">
+					<select class="form-control" name="query">
+						<option value="n_title">제목</option>
+						<option value="n_contents">내용</option>
+					</select> <input type="text" class="form-control input-s" name="data">
+					<button type="button" class="btn btn-default btn-s" id="search">찾기</button>
 				</form>
 				<br>
 				<br>

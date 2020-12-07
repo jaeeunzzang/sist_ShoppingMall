@@ -4,8 +4,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.com.app.dto.BoardMapper">
 
+	<sql id="search">
+		WHERE ${query} like '%'||#{data}||'%'
+	</sql>
+
 	<select id="selectNotice" resultType="notice">
-		SELECT*FROM NOTICE ORDER BY
+		SELECT*FROM NOTICE
+		ORDER BY
 		N_NO DESC
 	</select>
 
@@ -32,6 +37,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		N_NO=#{n_no}
 	</delete>
 
+	<select id="selectNoticeSearch">
+		SELECT*FROM NOTICE
+		<include refid="search"></include>
+		ORDER BY
+		N_NO DESC
+	</select>
 	<select id="selectReview" resultType="review">
 		SELECT
 		R_NO,M_ID,R_TITLE,R_CONTENTS,TO_CHAR(R_REGDATE,'YYYY-MM-DD')R_REGDATE,R_FILENAME
@@ -68,7 +79,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		Q_NO,Q_TITLE,M_ID,Q_CONTENTS,TO_CHAR(Q_REGDATE,'YYYY-MM-DD')Q_REGDATE,STATE,SECRET,Q_PNUM,P_FILENAME,LEV
 		FROM QNA,PRODUCT
 		WHERE
-		QNA.P_NO=PRODUCT.P_NO ORDER BY Q_PNUM DESC, LEV ASC
+		QNA.P_NO=PRODUCT.P_NO ORDER BY Q_PNUM DESC, LEV
+		ASC
 	</select>
 
 	<select id="selectQnaInfo" parameterType="java.lang.Integer"

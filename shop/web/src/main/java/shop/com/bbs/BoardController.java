@@ -2,6 +2,7 @@ package shop.com.bbs;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -32,6 +33,7 @@ public class BoardController {
 	@RequestMapping(value = "noticeInfo.do")
 	public String noticeInfoAction(int n_no, Model model) {
 		model.addAttribute("noticeInfo", dao.selectNoticeInfo(n_no));
+		model.addAttribute("n_no", n_no);
 		return "noticeInfo";
 	}
 
@@ -64,6 +66,15 @@ public class BoardController {
 	public String noticeDeleteAction(int n_no) {
 		dao.deleteNotice(n_no);
 		return "redirect:noticeList.do";
+	}
+
+	@RequestMapping(value = "noticeSearch.do")
+	public String noticeSearchAction(String query, String data, Model model) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put(query, data);
+		System.out.println(map);
+		model.addAttribute("notice", dao.selectNoticeSearch(map));
+		return "notice";
 	}
 
 	@RequestMapping(value = "reviewList.do")

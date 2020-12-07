@@ -1,5 +1,6 @@
 package shop.com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -40,6 +41,10 @@ public class BoardDao extends SqlSessionDaoSupport {
 
 	public void deleteNotice(int n_no) {
 		this.getSqlSession().delete("deleteNotice", n_no);
+	}
+
+	public List<NoticeBean> selectNoticeSearch(HashMap<String, Object> map) {
+		return this.getSqlSession().selectList("selectNoticeSearch", map);
 	}
 
 	public List<ReviewBean> selectReview() {
