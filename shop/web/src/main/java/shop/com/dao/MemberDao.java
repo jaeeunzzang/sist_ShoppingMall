@@ -1,5 +1,7 @@
 package shop.com.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +31,17 @@ public class MemberDao extends SqlSessionDaoSupport {
 	
 	public void signUp(MemberBean bean) {
 		this.getSqlSession().insert("signUp", bean);
+	}
+	
+	public List<MemberBean>  memberInfoList() {                     //2020-12-08
+		return this.getSqlSession().selectList("memberInfoList");
+	}
+	
+	public List<MemberBean> memberInfo(Object text) { //관리자 유저관리페이지
+		return this.getSqlSession().selectList("memberInfo",text);
+	}
+	
+	public List<MemberBean> memberSort(int num) {
+		return this.getSqlSession().selectList("memberSortList",num);
 	}
 }
