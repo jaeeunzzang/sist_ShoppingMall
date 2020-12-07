@@ -13,7 +13,14 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		
+		$("button[name='search']").click(function () { //검색처리
+			$("form[name='searchFm']").submit();
+		});
+		
+		$("input[name='optradio']").click(function () { //정렬처리
+			document.location.href("sortUserList.do?sort="+$(this).parents('label').text());
+		});
 	});
 </script>
 </head>
@@ -24,23 +31,17 @@
 			<div class="mainContents">
 				<h1 align="center">회원관리</h1>
 				<br> <br>
-				<form role="form" class="form-inline text-center">
-					<select class="form-control">
+				<form role="form" class="form-inline text-center" action="memberSearch.do" method="get" name="searchFm">
+					<select class="form-control" name="searchTarget">
 						<option value="1">전체</option>
 						<option value="2">회원번호</option>
 						<option value="3">회원명</option>
-					</select> <input type="text" class="form-control input-s">
-					<button type="button" class="btn btn-default btn-s">검색</button>
+					</select> <input type="text" class="form-control input-s" name="searchText">
+					<button type="button" class="btn btn-default btn-s" name="search">검색</button>
 					<br>
-					<br> <label class="form-check-label"> <input
-						class="form-check-input" type="checkbox"> 이름순 <input
-						class="form-check-input" type="checkbox"> 누적금액순
-					</label>
-				</form>
-
-				<form role="form" class="form-inline pull-right">
-					<button type="button"
-						class="btn btn-default btn-s glyphicon glyphicon-floppy-disk">저장</button>
+					<br> 
+					<label class="radio-inline" name="sort"><input type="radio" name="optradio" checked="checked">이름순</label>
+					<label class="radio-inline" name="sort"><input type="radio" name="optradio" >누적금액순</label>
 				</form>
 				<br>
 				<br>
@@ -78,6 +79,22 @@
 							<td class="text-center">2019-05-16</td>
 							<td class="text-center">10,000,000원</td>
 						</tr>
+							<c:forEach var="i" items="${userList}" varStatus="1">
+								<tr>
+									<th class="text-center">i</th>
+									<th class="text-center">${i.m_no}</th>
+									<th class="text-center">${i.m_name}</th>
+									<th class="text-center">${i.m_id}</th>
+									<th class="text-center">${i.gender}</th>
+									<th class="text-center">${i.birth}</th>
+									<th class="text-center">${i.m_addr}</th>
+									<th class="text-center">${i.hp}</th>
+									<th class="text-center">${i.grade}</th>
+									<th class="text-center">${i.point}P</th>
+									<th class="text-center">${i.joindate}</th>
+									<th class="text-center">${i.price_sum}원</th>
+								</tr>
+							</c:forEach>
 					</tbody>
 				</table>
 				
