@@ -6,6 +6,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.com.app.dto.MemberBean;
 import shop.com.dao.MemberDao;
@@ -34,4 +37,24 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:mainPage.do";
 	}
+	
+	@RequestMapping(value = "signUp.do")
+	public String signUpAction(MemberBean bean) {
+		//System.out.println(bean);
+		dao.signUp(bean);
+		return "redirect:mainPage.do";
+	}
+	
+	@RequestMapping(value = "sameIdCheck.do", method = RequestMethod.POST)
+	public @ResponseBody String AjaxView(@RequestParam("id") String id){
+		String str = "";
+		int idcheck = dao.idCheck(id);
+		if(idcheck==1){ //이미 존재하는 계정
+			str = "NO";	
+		}else{	//사용 가능한 계정
+			str = "YES";	
+		}
+		return str;
+	}
+
 }
