@@ -99,7 +99,7 @@ a:link, a:visited, a:active {
 					<c:choose>
 						<c:when test="${empty sessionScope.id}">
 							<ul class="main-menu">
-								<li><a class="text-muted" href="../SignIn2.jsp">LOGIN</a></li>
+								<li><a class="text-muted" href="SignIn2.jsp">LOGIN</a></li>
 							</ul>
 						</c:when>
 						<c:otherwise>

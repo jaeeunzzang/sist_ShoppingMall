@@ -14,14 +14,7 @@
 <script src="/web/shop/css/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	if(${qInfo.secret eq 'private'}){
-		if(${qInfo.m_id ne sessionScope.id}||${qInfo.m_id ne 'Admin'}){
-			alert("비밀글입니다");
-			document.location.href = "/web/qnaList.do";
-		}
-	}
-});
+	
 </script>
 
 </head>
@@ -72,7 +65,7 @@ $(document).ready(function(){
 								<button type="button" class="btn btn-default btn-s">목록</button>
 							</a>
 							<c:if test="${sessionScope.id eq 'Admin'}">
-								<a href="qnaAdminWrite.do">
+								<a href="qnaAdminWrite.do?q_no=${qInfo.q_no}">
 									<button type="button" class="btn btn-default btn-s">답글달기</button>
 								</a>
 							</c:if>

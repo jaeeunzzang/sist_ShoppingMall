@@ -15,21 +15,14 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("button#save").click(
+		$("button#save").click( //저장버튼 클릭하면 수행되는 함수
 				function() {
-
-					if ($("input[name='state']").val() == 'new') {
-						$("input[name='q_pnum']").val(
-								$("input[name='p_no']").val());
-					}
-
 					if ($("input[name='q_title']").val.length == 0
 							|| $("input[name='q_contents']").val.length == 0) {
 						alert("제목과 내용을 입력해주세요");
 						return false;
-					}
+					} //if
 					$("form#newFrm").submit();
-
 				});
 		$("button#mod").click(function() {
 
@@ -47,10 +40,11 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">Q&A</h4>
 					</div>
+					<!-- 새글 작성할때 -->
 					<c:choose>
 						<c:when test="${job ne 'mod'}">
 							<div class="panel-body">
-								<form role="form" class="form-inline" action="/web/qnaInsert.do" id="newFrm" method="post">
+								<form role="form" class="form-inline" action="qnaInsert.do" id="newFrm" method="post">
 									<div class="table-responsive">
 										<table class="table table-bordered">
 											<colgroup>
@@ -62,9 +56,9 @@
 												<td>
 													<div class="form-group">
 														<input type="text" class="form-control" name="q_title" placeholder="제목을 입력해주세요"
-															style="width: 945px"> <input type="hidden" name="p_no" value="${p_no}">
-														<input type="hidden" name="state" value="${state}"> <input type="hidden"
-															name="q_pnum">
+															style="width: 945px">
+															<input type="hidden" name="p_no" value="${p_no}">
+														<input type="hidden" name="state" value="${state}"> 
 													</div>
 												</td>
 											</tr>
