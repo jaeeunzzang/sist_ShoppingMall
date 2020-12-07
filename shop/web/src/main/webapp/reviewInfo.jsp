@@ -24,14 +24,11 @@ textarea.form-control:read-only {
 			document.location.href = 'reviewList.do';
 		});
 		$("button#del").click(function() {
+			var r_no = $("button#del").val();
 			var confirm_test = confirm("정말로 삭제하시겠습니까?");
 			if (confirm_test == true) {
 				alert("삭제되었습니다.");
-				document.location.href = 'reviewDelete.do?r_no=' + $
-				{
-					reviewInfo.r_no
-				}
-				;
+				document.location.href = 'reviewDelete.do?r_no=' + r_no;
 			}
 		});
 	});
@@ -85,7 +82,7 @@ textarea.form-control:read-only {
 								<c:when test="${sessionScope.id eq reviewInfo.m_id}">
 									<button type="button" class="btn btn-default btn-s"
 										onclick="location.href='reviewMod.do?r_no=${reviewInfo.r_no}&job=mod'">수정</button>
-									<button type="button" class="btn btn-default btn-s" id="del">삭제</button>
+									<button type="button" class="btn btn-default btn-s" id="del" value="${reviewInfo.r_no}">삭제</button>
 								</c:when>
 							</c:choose>
 							<button type="button" class="btn btn-default btn-s" id="list">목록</button>

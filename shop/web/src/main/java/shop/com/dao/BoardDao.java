@@ -69,6 +69,10 @@ public class BoardDao extends SqlSessionDaoSupport {
 		this.getSqlSession().delete("deleteReview", r_no);
 	}
 
+	public List<ReviewBean> selectReviewSearch(HashMap<String, Object> map) throws Exception {
+		return this.getSqlSession().selectList("selectReviewSearch", map);
+	}
+
 	public List<QnaBean> selectQna() {
 		return this.getSqlSession().selectList("selectQna");
 	}
@@ -91,5 +95,9 @@ public class BoardDao extends SqlSessionDaoSupport {
 
 	public void deleteQna(int q_no) {
 		this.getSqlSession().delete("deleteQna", q_no);
+	}
+
+	public List<QnaBean> selectQnaSearch(HashMap<String, Object> map) throws Exception {
+		return this.getSqlSession().selectList("selectQnaSearch", map);
 	}
 }

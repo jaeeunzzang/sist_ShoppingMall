@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.com.app.dto.BoardMapper">
+
+	<sql id="search">
+		WHERE ${query} like '%'||#{data}||'%'
+	</sql>
+
+	<select id="selectNotice" resultType="notice">
+		SELECT*FROM NOTICE
+		ORDER BY
+		N_NO DESC
+	</select>
+
+	<select id="selectNoticeInfo" resultType="notice"
+		parameterType="java.lang.Integer">
+		SELECT
+		N_NO,N_TITLE,N_CONTENTS,TO_CHAR(N_REGDATE,'YYYY/MM/DD')N_REGDATE FROM
+		NOTICE WHERE N_NO=#{n_no}
+	</select>
+
+	<insert id="insertNotice" parameterType="notice">
+		INSERT INTO NOTICE
+		VALUES(NOTICE_SEQ.NEXTVAL,#{n_title},#{n_contents},SYSDATE)
+	</insert>
+
+	<update id="updateNotice" parameterType="notice">
+		UPDATE NOTICE SET
+		N_TITLE=#{n_title},N_CONTENTS=#{n_contents}
+		WHERE N_NO=#{n_no}
+	</update>
+
+	<delete id="deleteNotice" parameterType="java.lang.Integer">
+		DELETE FROM NOTICE WHERE
+		N_NO=#{n_no}
+	</delete>
+
+	<select id="selectNoticeSearch"
+		parameterType="java.util.HashMap" resultType="notice">
+		SELECT * FROM NOTICE
+		<include refid="search"></include>
+		ORDER BY
+		N_NO DESC
+	</select>
+
+	<select id="selectReview" resultType="review">
+		SELECT
+		R_NO,M_ID,R_TITLE,R_CONTENTS,TO_CHAR(R_REGDATE,'YYYY-MM-DD')R_REGDATE,R_FILENAME
+		FROM REVIEW ORDER BY R_NO DESC
+	</select>
+
+	<select id="selectReviewInfo" parameterType="java.lang.Integer"
+		resultType="review">
+		SELECT
+		R_NO,M_ID,REVIEW.P_NO,P_NAME,R_TITLE,R_CONTENTS,R_REGDATE,R_FILENAME,R_COMMENTS
+		FROM
+		REVIEW,PRODUCT WHERE REVIEW.P_NO=PRODUCT.P_NO AND R_NO=#{r_no}
+	</select>
+
+	<insert id="insertReview" parameterType="review">
+		INSERT INTO
+		REVIEW(R_NO,P_NO,R_TITLE,M_ID,R_CONTENTS,R_REGDATE,R_FILENAME)
+		VALUES(REVIEW_SEQ.NEXTVAL,#{p_no},#{r_title},#{m_id},#{r_contents},SYSDATE,#{r_fileName})
+	</insert>
+
+	<update id="updateReview" parameterType="review">
+		UPDATE REVIEW SET
+		R_TITLE=#{r_title},R_CONTENTS=#{r_contents},R_FILENAME=#{r_fileName}
+		WHERE R_NO=#{r_no}
+	</update>
+
+	<update id="updateReviewComments" parameterType="review">
+		UPDATE REVIEW
+		SET
+		R_COMMENTS=#{r_comments}
+		WHERE R_NO=#{r_no}
+	</update>
+
+	<delete id="deleteReview" parameterType="java.lang.Integer">
+		DELETE REVIEW WHERE
+		R_NO=#{r_no}
+	</delete>
+
+	<select id="selectReviewSearch"
+		parameterType="java.util.HashMap" resultType="review">
+		SELECT
+		R_NO,M_ID,R_TITLE,R_CONTENTS,TO_CHAR(R_REGDATE,'YYYY-MM-DD')R_REGDATE,R_FILENAME
+		FROM REVIEW
+		<include refid="search"></include>
+		ORDER BY
+		R_NO DESC
+	</select>
+
+	<select id="selectQna" resultType="qna">
+		SELECT
+		Q_NO,Q_TITLE,M_ID,Q_CONTENTS,TO_CHAR(Q_REGDATE,'YYYY-MM-DD')Q_REGDATE,STATE,SECRET,Q_PNUM,P_FILENAME,LEV
+		FROM QNA,PRODUCT
+		WHERE
+		QNA.P_NO=PRODUCT.P_NO ORDER BY Q_PNUM DESC, LEV
+		ASC
+	</select>
+
+	<select id="selectQnaInfo" parameterType="java.lang.Integer"
+		resultType="qna">
+		SELECT
+		Q_NO,Q_TITLE,M_ID,Q_CONTENTS,TO_CHAR(Q_REGDATE,'YYYY-MM-DD')Q_REGDATE,STATE,SECRET,Q_PNUM,P_FILENAME,QNA.P_NO
+		FROM QNA,PRODUCT WHERE Q_NO=#{q_no} AND QNA.P_NO=PRODUCT.P_NO
+	</select>
+
+	<insert id="insertQna" parameterType="qna">
+		<selectKey keyProperty="q_no" order="BEFORE"
+			resultType="java.lang.Integer">
+			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO
+		QNA(Q_NO,Q_TITLE,M_ID,Q_CONTENTS,Q_REGDATE,STATE,SECRET,Q_PNUM,P_NO,LEV)
+		VALUES(#{q_no},#{q_title},#{m_id},#{q_contents},SYSDATE,#{state},#{secret},#{q_no},#{p_no},0)
+	</insert>
+
+	<insert id="insertQnaReply" parameterType="qna">
+		<selectKey keyProperty="q_no" order="BEFORE"
+			resultType="java.lang.Integer">
+			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO
+		QNA(Q_NO,Q_TITLE,M_ID,Q_CONTENTS,Q_REGDATE,STATE,SECRET,Q_PNUM,P_NO,LEV)
+		VALUES(#{q_no},#{q_title},#{m_id},#{q_contents},SYSDATE,#{state},#{secret},#{q_pnum},#{p_no},1)
+	</insert>
+
+	<update id="updateQna" parameterType="qna">
+		UPDATE QNA SET
+		Q_TITLE=#{q_title},Q_CONTENTS=#{q_contents},SECRET=#{secret}
+		WHERE
+		Q_NO=#{q_no}
+	</update>
+
+	<delete id="deleteQna" parameterType="java.lang.Integer">
+		DELETE FROM QNA WHERE
+		Q_NO=#{q_no}
+	</delete>
+
+	<select id="selectQnaSearch" parameterType="java.util.HashMap"
+		resultType="qna">
+		SELECT
+		Q_NO,Q_TITLE,M_ID,Q_CONTENTS,TO_CHAR(Q_REGDATE,'YYYY-MM-DD')Q_REGDATE,STATE,SECRET,Q_PNUM,P_FILENAME,LEV
+		FROM QNA,PRODUCT
+		WHERE
+		QNA.P_NO=PRODUCT.P_NO AND
+		${query} like
+		'%'||#{data}||'%'
+		ORDER BY Q_PNUM DESC, LEV ASC
+
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

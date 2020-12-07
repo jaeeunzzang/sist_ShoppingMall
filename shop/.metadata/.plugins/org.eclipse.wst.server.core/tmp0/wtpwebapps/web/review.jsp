@@ -25,7 +25,12 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		$("button#search").click(function() {
+			if ($("input[name='data']").val().length < 1) {
+				$("input[name='data']").val("");
+			}
+			$("form[name='searchFrm']").submit();
+		});
 	});
 </script>
 
@@ -110,14 +115,14 @@
 				<br>
 				<br>
 
-				<form role="form" class="form-inline pull-right">
-					<select class="form-control">
-						<option>제목</option>
-						<option>내용</option>
-						<option>이름</option>
-						<option>아이디</option>
-					</select> <input type="text" class="form-control input-s">
-					<button type="button" class="btn btn-default btn-s">찾기</button>
+				<form role="form" class="form-inline pull-right" action="reviewSearch.do" name="searchFrm"
+					method="post">
+					<select class="form-control" name="query">
+						<option value="r_title">제목</option>
+						<option value="r_contents">내용</option>
+						<option value="m_id">아이디</option>
+					</select> <input type="text" class="form-control input-s" name="data">
+					<button type="button" class="btn btn-default btn-s" id="search">찾기</button>
 				</form>
 				<br>
 				<br>

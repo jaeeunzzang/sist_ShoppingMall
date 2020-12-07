@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectReview" resultType="review">
 		SELECT
 		R_NO,M_ID,R_TITLE,R_CONTENTS,TO_CHAR(R_REGDATE,'YYYY-MM-DD')R_REGDATE,R_FILENAME
-		FROM REVIEW
+		FROM REVIEW ORDER BY R_NO DESC
 	</select>
 
 	<select id="selectReviewInfo" parameterType="java.lang.Integer"
@@ -67,7 +67,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="updateReview" parameterType="review">
 		UPDATE REVIEW SET
-		R_TITLE=#{r_title},R_CONTENTS=#{r_contents},R_COMMENTS=#{r_comments}
+		R_TITLE=#{r_title},R_CONTENTS=#{r_contents}
+		WHERE R_NO=#{r_no}
+	</update>
+
+	<update id="updateReviewComments" parameterType="review">
+		UPDATE REVIEW
+		SET
+		R_COMMENTS=#{r_comments}
 		WHERE R_NO=#{r_no}
 	</update>
 
@@ -75,6 +82,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE REVIEW WHERE
 		R_NO=#{r_no}
 	</delete>
+
+	<select id="selectReviewSearch"
+		parameterType="java.util.HashMap" resultType="review">
+		SELECT
+		R_NO,M_ID,R_TITLE,R_CONTENTS,TO_CHAR(R_REGDATE,'YYYY-MM-DD')R_REGDATE,R_FILENAME
+		FROM REVIEW
+		<include refid="search"></include>
+		ORDER BY
+		R_NO DESC
+	</select>
 
 	<select id="selectQna" resultType="qna">
 		SELECT
@@ -123,6 +140,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM QNA WHERE
 		Q_NO=#{q_no}
 	</delete>
+
+	<select id="selectQnaSearch" parameterType="java.util.HashMap"
+		resultType="qna">
+		SELECT
+		Q_NO,Q_TITLE,M_ID,Q_CONTENTS,TO_CHAR(Q_REGDATE,'YYYY-MM-DD')Q_REGDATE,STATE,SECRET,Q_PNUM,P_FILENAME,LEV
+		FROM QNA,PRODUCT
+		WHERE
+		QNA.P_NO=PRODUCT.P_NO AND
+		${query} like
+		'%'||#{data}||'%'
+		ORDER BY Q_PNUM DESC, LEV ASC
+
+	</select>
 </mapper>
 
 

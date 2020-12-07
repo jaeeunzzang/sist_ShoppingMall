@@ -15,9 +15,26 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("button#save").click(function() {
-			$("form[name='newFrm']").submit();
-		});
+		$("button#save")
+				.click(
+						function() {
+							if ($("input[name='r_title']").val().length < 1
+									|| $("textarea[name='r_contents']").val().length < 1) {
+								alert("제목과 내용을 입력해주세요");
+								return false;
+							}
+							$("form[name='newFrm']").submit();
+						});
+		$("button#mod")
+				.click(
+						function() {
+							if ($("input[name='r_title']").val().length < 1
+									|| $("textarea[name='r_contents']").val().length < 1) {
+								alert("제목과 내용을 입력해주세요");
+								return false;
+							}
+							$("form[name='modFrm']").submit();
+						});
 	});
 </script>
 
@@ -58,7 +75,8 @@
 											</tr>
 											<tr>
 												<td class="text-center">첨부파일</td>
-												<td><input type="file" name="file"></td>
+												<td><input type="file" name="file"><font color="red">파일은 한번 올리면 바꾸실
+														수 없습니다.</font></td>
 											</tr>
 										</table>
 									</form>
@@ -79,7 +97,8 @@
 										<td class="text-center">제목</td>
 										<td><input type="text" class="form-control" name="r_title"
 											value="${reviewInfo.r_title}"><input type="hidden" name="p_no"
-											value="${reviewInfo.p_no}"></td>
+											value="${reviewInfo.p_no}"><input type="hidden" name="r_no"
+											value="${reviewInfo.r_no}"></td>
 									</tr>
 									<tr>
 										<td class="text-center">이름</td>
@@ -88,10 +107,6 @@
 									</tr>
 									<tr>
 										<td colspan="2"><textarea rows="12" class="form-control" name="r_contents">${reviewInfo.r_contents}</textarea></td>
-									</tr>
-									<tr>
-										<td class="text-center">첨부파일</td>
-										<td><input type="file" name="file"></td>
 									</tr>
 								</table>
 							</form>

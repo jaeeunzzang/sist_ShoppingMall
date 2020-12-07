@@ -14,9 +14,20 @@
 <script src="/web/shop/css/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-	
+	$(function() {
+		$("button#list").click(function() {
+			document.location.href = 'qnaList.do';
+		});
+		$("button#del").click(function() {
+			var q_no = $("button#del").val();
+			var confirm_test = confirm("정말로 삭제하시겠습니까?");
+			if (confirm_test == true) {
+				alert("삭제되었습니다.");
+				document.location.href = 'qnaDelete.do?q_no=' + q_no;
+			}
+		});
+	});
 </script>
-
 </head>
 <jsp:include page="header.jsp"></jsp:include>
 <body>
@@ -58,9 +69,13 @@
 							</table>
 						</div>
 						<form role="form" class="form-inline pull-right">
-							<a href="qnaModify.jsp">
-								<button type="button" class="btn btn-default btn-s">수정</button>
-							</a>
+							<c:choose>
+								<c:when test="${sessionScope.id eq qInfo.m_id}">
+									<button type="button" class="btn btn-default btn-s"
+										onclick="location.href='qnaMod.do?q_no=${qInfo.q_no}&job=mod'">수정</button>
+									<button type="button" class="btn btn-default btn-s" id="del" value="${qInfo.q_no}">삭제</button>
+								</c:when>
+							</c:choose>
 							<a href="qnaList.do">
 								<button type="button" class="btn btn-default btn-s">목록</button>
 							</a>

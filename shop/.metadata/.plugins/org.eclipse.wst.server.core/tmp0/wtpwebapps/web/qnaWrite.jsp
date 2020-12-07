@@ -15,18 +15,27 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("button#save").click( //저장버튼 클릭하면 수행되는 함수
-				function() {
-					if ($("input[name='q_title']").val.length == 0
-							|| $("input[name='q_contents']").val.length == 0) {
-						alert("제목과 내용을 입력해주세요");
-						return false;
-					} //if
-					$("form#newFrm").submit();
-				});
-		$("button#mod").click(function() {
-
-		});
+		$("button#save")
+				.click(
+						//저장버튼 클릭하면 수행되는 함수
+						function() {
+							if ($("input[name='q_title']").val.length == 0
+									|| $("textarea[name='q_contents']").val.length == 0) {
+								alert("제목과 내용을 입력해주세요");
+								return false;
+							} //if
+							$("form#newFrm").submit();
+						});
+		$("button#mod")
+				.click(
+						function() {
+							if ($("input[name='q_title']").val.length == 0
+									|| $("textarea[name='q_contents']").val.length == 0) {
+								alert("제목과 내용을 입력해주세요");
+								return false;
+							} //if
+							$("form#modFrm").submit();
+						});
 	});
 </script>
 
@@ -56,9 +65,8 @@
 												<td>
 													<div class="form-group">
 														<input type="text" class="form-control" name="q_title" placeholder="제목을 입력해주세요"
-															style="width: 945px">
-															<input type="hidden" name="p_no" value="${p_no}">
-														<input type="hidden" name="state" value="${state}"> 
+															style="width: 945px"> <input type="hidden" name="p_no" value="${p_no}">
+														<input type="hidden" name="state" value="${state}">
 													</div>
 												</td>
 											</tr>
@@ -93,7 +101,7 @@
 						</c:when>
 						<c:otherwise>
 							<div class="panel-body">
-								<form role="form" class="form-inline" action="/web/qnaUpdate.do" id="modFrm" method="post">
+								<form role="form" class="form-inline" action="qnaUpdate.do" id="modFrm" method="post">
 									<div class="table-responsive">
 										<table class="table table-bordered">
 											<colgroup>

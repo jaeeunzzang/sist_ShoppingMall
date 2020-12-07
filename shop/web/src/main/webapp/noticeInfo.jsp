@@ -17,10 +17,11 @@
 			document.location.href = 'noticeList.do';
 		});
 		$("button#del").click(function() {
+			var n_no=$("button#del").val();
 			var confirm_test = confirm("정말로 삭제하시겠습니까?");
 			if (confirm_test == true) {
 				alert("삭제되었습니다.");
-				document.location.href = 'noticeDelete.do?n_no=' + ${n_no};
+				document.location.href = 'noticeDelete.do?n_no=' + n_no;
 			}
 		});
 	});
