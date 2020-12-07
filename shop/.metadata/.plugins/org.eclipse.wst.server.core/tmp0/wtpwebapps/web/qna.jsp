@@ -15,7 +15,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		if(${alert ne 'public'}){
+		if(${alert eq 'private'}){
 			alert("비밀글 입니다");
 		}
 			$("button#search").click(function() {
@@ -39,8 +39,8 @@
 				<form role="form" class="form-inline pull-right" name="searchFrm" method="post"
 					action="qnaSearch.do">
 					<select class="form-control" name="query">
-						<option value="n_title">제목</option>
-						<option value="n_contents">내용</option>
+						<option value="q_title">제목</option>
+						<option value="q_contents">내용</option>
 						<option value="m_id">아이디</option>
 					</select> <input type="text" class="form-control input-s" name="data">
 					<button type="button" class="btn btn-default btn-s" id="search">찾기</button>
@@ -74,7 +74,7 @@
 								<c:choose>
 									<c:when test="${i.state eq 'new'}">
 										<th class="text-center"><img src="img/${i.p_fileName}" /></th>
-										<th><a href="qnaInfo.do?q_no=${i.q_no}">
+										<th><a href="qnaInfo.do?q_no=${i.q_no}&q_pnum=${i.q_pnum}">
 												${i.q_title}
 												<c:if test="${i.secret eq 'private'}">
 													<img class="reImg" src="img/lock.png">
@@ -83,7 +83,8 @@
 									</c:when>
 									<c:otherwise>
 										<th></th>
-										<th><img class="reImg" src="img/re.png"> <a href="qnaInfo.do?q_no=${i.q_no}">
+										<th><img class="reImg" src="img/re.png"> <a
+												href="qnaInfo.do?q_no=${i.q_no}&q_pnum=${i.q_pnum}">
 												[RE]${i.q_title}
 												<c:if test="${i.secret eq 'private'}">
 													<img class="reImg" src="img/lock.png">

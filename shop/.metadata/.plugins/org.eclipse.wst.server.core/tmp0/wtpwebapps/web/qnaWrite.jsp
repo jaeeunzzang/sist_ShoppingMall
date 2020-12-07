@@ -116,7 +116,7 @@
 															style="width: 945px" value="${qnaInfo.q_title}"> <input type="hidden"
 															name="p_no" value="${qnaInfo.p_no}"> <input type="hidden" name="q_no"
 															value="${qnaInfo.q_no}"> <input type="hidden" name="q_pnum"
-															value="${q_pnum}">
+															value="${qnaInfo.q_pnum}">
 													</div>
 												</td>
 											</tr>

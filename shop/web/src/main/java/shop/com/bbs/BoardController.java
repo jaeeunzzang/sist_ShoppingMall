@@ -165,20 +165,21 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "qnaInfo.do")
-	public String qnaInfoAction(int q_no, Model model, HttpSession session) {
+	public String qnaInfoAction(int q_no,int q_pnum, Model model, HttpSession session) {
 
 		QnaBean qna = dao.selectQnaInfo(q_no);
 		// System.out.println("get sessionId:" + session.getAttribute("id"));
 		// System.out.println("qna m_id: " + qna.getM_id());
 		model.addAttribute("qInfo", qna);
 
+		QnaBean qnaPnum=dao.selectQnaInfo(q_pnum);
 		if (qna.getSecret().equals("private")) { // 비밀글일때
 			// System.out.println("private check");
 			if (session.getAttribute("id") == null) {
 				// System.out.println("session null");
-				return "redirect:qnaList.do?alert=secret";
+				return "redirect:qnaList.do?alert=private";
 			}
-			if (qna.getM_id().equals(session.getAttribute("id"))) {
+			if (qna.getM_id().equals(session.getAttribute("id"))||qnaPnum.getM_id().equals(session.getAttribute("id"))) {
 				// System.out.println("session, m_id equals");
 				return "qnaInfo";
 
@@ -187,7 +188,7 @@ public class BoardController {
 				return "qnaInfo";
 			} else {
 				// System.out.println(" session, id not equal ");
-				return "redirect:qnaList.do?alert=secret";
+				return "redirect:qnaList.do?alert=private";
 			}
 		}
 		// if (qna.getSecret().equals("private")){// secret이 private일때
@@ -231,11 +232,17 @@ public class BoardController {
 		return "redirect:qnaList.do";
 	}
 
-	@RequestMapping(value = "qnaModify.do")
-	public String qnaModifyAction(int q_no, Model model) {
+	@RequestMapping(value = "qnaMod.do")
+	public String qnaModifyAction(int q_no, String job, Model model) {
 		model.addAttribute("qnaInfo", dao.selectQnaInfo(q_no));
-		System.out.println(model);
+		model.addAttribute("job", job);
 		return "qnaWrite";
+	}
+
+	@RequestMapping(value = "qnaUpdate.do")
+	public String qnaUpdateAction(QnaBean qna) {
+		dao.updateQna(qna);
+		return "redirect:qnaList.do";
 	}
 
 	@RequestMapping(value = "qnaDelete.do")
