@@ -71,11 +71,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE R_NO=#{r_no}
 	</update>
 
-	<update id="updateReviewComments" parameterType="review">
+	<update id="updateReviewComments"
+		parameterType="java.util.HashMap">
 		UPDATE REVIEW
 		SET
 		R_COMMENTS=#{r_comments}
-		WHERE R_NO=#{r_no}
+		WHERE
+		R_NO=#{r_no}
 	</update>
 
 	<delete id="deleteReview" parameterType="java.lang.Integer">

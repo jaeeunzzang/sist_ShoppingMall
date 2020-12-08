@@ -106,12 +106,12 @@
 									<tr>
 										<th scope="row">주소</th>
 										<td><input id="postcode1" name="postcode1" class="" placeholder=""
-											readonly="readonly" maxlength="14" value="${memberInfo.m_addr}" type="text"> <a href="#none"
-												onclick="" id="postBtn">
+											readonly="readonly" maxlength="14" value="" type="text"> <a
+												href="#none" onclick="" id="postBtn">
 												<img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif" alt="우편번호">
 											</a> <br> <input id="addr1" name="addr1" class="" placeholder="" readonly="readonly"
 											value="" type="text"> 기본주소 <br> <input id="addr2" name="addr2" class=""
-											placeholder="" value="" type="text"> 나머지주소(선택입력가능)</td>
+											placeholder="" value="${memberInfo.m_addr}" type="text"> 나머지주소(선택입력가능)</td>
 									<tr class="">
 										<th scope="row">일반전화 <img class="reqImg"
 											src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone"

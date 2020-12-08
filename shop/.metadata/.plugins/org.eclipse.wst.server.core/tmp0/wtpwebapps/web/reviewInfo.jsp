@@ -31,6 +31,9 @@ textarea.form-control:read-only {
 				document.location.href = 'reviewDelete.do?r_no=' + r_no;
 			}
 		});
+		$("button#commentsMod").click(function() {
+			$("form[name='commentsFrm']").submit();
+		});
 	});
 </script>
 
@@ -92,16 +95,27 @@ textarea.form-control:read-only {
 							<h4 class="panel-title">COMMENTS</h4>
 						</div>
 						<div class="table-responsive">
-							<table class="table table-bordered">
-								<colgroup>
-									<col width="100" />
-									<col width="900" />
-								</colgroup>
-								<tr>
-									<td><img src="img/re.png"> Admin</td>
-									<td>${reviewInfo.r_comments}</td>
-								</tr>
-							</table>
+							<form action="reviewCommentsUpdate.do?r_no=${reviewInfo.r_no}" name="commentsFrm"
+								method="post">
+								<table class="table table-bordered">
+									<colgroup>
+										<col width="100" />
+										<col width="900" />
+									</colgroup>
+									<tr>
+										<td><img src="img/re.png"> Admin</td>
+										<c:choose>
+											<c:when test="${sessionScope.id eq 'Admin'}">
+												<td><input type="text" name="r_comments" value="${reviewInfo.r_comments}"></td>
+											</c:when>
+											<c:otherwise>
+												<td><input type="text" value="${reviewInfo.r_comments}"
+													style="border-style: none; background: white;" disabled="disabled"></td>
+											</c:otherwise>
+										</c:choose>
+									</tr>
+								</table>
+							</form>
 							<c:if test="${sessionScope.id eq 'Admin'}">
 								<div align="right">
 									<button type="button" class="btn btn-default btn-s" id="commentsMod">답글수정</button>

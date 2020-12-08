@@ -137,6 +137,15 @@ public class BoardController {
 		return "redirect:reviewList.do";
 	}
 
+	@RequestMapping(value = "reviewCommentsUpdate.do")
+	public String reviewCommentsUpdateAction(int r_no, String r_comments) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("r_no", r_no);
+		map.put("r_comments", r_comments);
+		dao.updateReviewComments(map);
+		return "redirect:reviewInfo.do?r_no=" + r_no;
+	}
+
 	@RequestMapping(value = "reviewDelete.do")
 	public String reviewDeleteAction(int r_no) {
 		dao.deleteReview(r_no);
@@ -165,21 +174,22 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "qnaInfo.do")
-	public String qnaInfoAction(int q_no,int q_pnum, Model model, HttpSession session) {
+	public String qnaInfoAction(int q_no, int q_pnum, Model model, HttpSession session) {
 
 		QnaBean qna = dao.selectQnaInfo(q_no);
 		// System.out.println("get sessionId:" + session.getAttribute("id"));
 		// System.out.println("qna m_id: " + qna.getM_id());
 		model.addAttribute("qInfo", qna);
 
-		QnaBean qnaPnum=dao.selectQnaInfo(q_pnum);
+		QnaBean qnaPnum = dao.selectQnaInfo(q_pnum);
 		if (qna.getSecret().equals("private")) { // 비밀글일때
 			// System.out.println("private check");
 			if (session.getAttribute("id") == null) {
 				// System.out.println("session null");
 				return "redirect:qnaList.do?alert=private";
 			}
-			if (qna.getM_id().equals(session.getAttribute("id"))||qnaPnum.getM_id().equals(session.getAttribute("id"))) {
+			if (qna.getM_id().equals(session.getAttribute("id"))
+					|| qnaPnum.getM_id().equals(session.getAttribute("id"))) {
 				// System.out.println("session, m_id equals");
 				return "qnaInfo";
 

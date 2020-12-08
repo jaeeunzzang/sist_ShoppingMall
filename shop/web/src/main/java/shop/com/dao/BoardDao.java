@@ -65,6 +65,10 @@ public class BoardDao extends SqlSessionDaoSupport {
 		this.getSqlSession().update("updateReview", review);
 	}
 
+	public void updateReviewComments(HashMap<String, Object> map) {
+		this.getSqlSession().update("updateReviewComments", map);
+	}
+
 	public void deleteReview(int r_no) {
 		this.getSqlSession().delete("deleteReview", r_no);
 	}
