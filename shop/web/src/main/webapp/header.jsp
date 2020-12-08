@@ -108,9 +108,19 @@ a:link, a:visited, a:active {
 							</ul>
 						</c:otherwise>
 					</c:choose>
-					<ul class="main-menu">
-						<li><a class="text-muted" href="myPage.jsp">MYPAGE</a></li>
-					</ul>
+					<c:choose>
+						<c:when test="${sessionScope.id eq 'Admin'}">
+							<ul class="main-menu">
+								<li><a class="text-muted" href="adminPage.jsp">ADMINPAGE</a></li>
+							</ul>
+							
+						</c:when>
+						<c:otherwise>
+							<ul class="main-menu">
+								<li><a class="text-muted" href="myPage.jsp">MYPAGE</a></li>
+							</ul>
+						</c:otherwise>
+					</c:choose>
 					<ul class="main-menu">
 						<li><a class="text-muted" href="#">BOARD </a>
 							<ul class="sub-menu">
