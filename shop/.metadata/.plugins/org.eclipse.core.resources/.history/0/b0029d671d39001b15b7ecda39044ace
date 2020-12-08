@@ -1,0 +1,97 @@
+package shop.com.bbs;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.http.HttpRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import shop.com.app.dto.MemberBean;
+import shop.com.dao.MemberDao;
+
+@Controller
+public class MemberController {
+
+	@Resource(name = "memberDao")
+	private MemberDao dao;
+
+	@RequestMapping(value = "loginCheck.do")
+	public String loginCheckAction(MemberBean bean, HttpSession session) {
+		// System.out.println("Controller" + bean);
+//		System.out.println(dao.loginCheck(bean));
+		if (dao.loginCheck(bean)) {
+			// System.out.println(bean.getM_id());
+			session.setAttribute("id", bean.getM_id());
+			return "test";
+		} else
+			return "SignIn2";
+	}
+
+	@RequestMapping(value = "logout.do")
+	public String logoutAction(HttpSession session) {
+		System.out.println(session.getAttribute("id"));
+		session.invalidate();
+		return "redirect:mainPage.do";
+	}
+	
+	@RequestMapping(value = "signUp.do")
+	public String signUpAction(MemberBean bean) {
+		//System.out.println(bean);
+		dao.signUp(bean);
+		return "redirect:mainPage.do";
+	}
+	
+	@RequestMapping(value = "sameIdCheck.do", method = RequestMethod.POST)
+	public @ResponseBody String AjaxView(@RequestParam("id") String id){
+		String str = "";
+		int idcheck = dao.idCheck(id);
+		if(idcheck==1){ //이미 존재하는 계정
+			str = "NO";	
+		}else{	//사용 가능한 계정
+			str = "YES";	
+		}
+		return str;
+	}
+	
+	//2020-12-08
+	@RequestMapping(value="memberList.do") //리스트뽑기
+	public String memberList() {
+		return "userManegement";
+	}
+	
+	@RequestMapping(value="memberSearch.do") //검색
+	public String memberInfo(@RequestParam(value="searchTarget", defaultValue="전체")String target,@RequestParam(value="searchText",defaultValue="")String text, Model model) {
+		if(target.equals("전체")) {
+			model.addAttribute("userList", dao.memberInfoList());
+		}
+		else if(target.equals("회원번호")) {
+			int no=Integer.parseInt(text);
+			model.addAttribute("userList", dao.memberInfo(no));
+		}else {
+			model.addAttribute("userList", dao.memberInfo(text));
+		}
+		return "redirect:memberList.do";
+	}
+	
+	@RequestMapping(value="sortUserList.do") //정렬
+	public String sortList(@RequestParam("sort")String stm,Model model) {
+		if(stm.equals("이름순")) {
+			model.addAttribute("userList", dao.memberSort(1));
+		}else {
+			model.addAttribute("userList", dao.memberSort(2));
+		}
+		return "redirect:memberList.do";
+	}
+
+	@RequestMapping(value="mypage.do") //회원 마이페이지액션
+	public String memberMyPageAction() {
+		
+	}
+}

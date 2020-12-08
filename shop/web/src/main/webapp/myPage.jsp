@@ -5,16 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MY PAGE</title>
 <link href="css/maincss.css" rel="stylesheet">
 <link href="css/kfonts2.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$("button#idcheck").click(function() {
+			if ($("input[name='m_pw']").val().length < 1) {
+				alert("비밀번호를 입력해주세요");
+				return false;
+			}
+			$("form[name='checkFrm']").submit();
+		});
 
 	});
 </script>
@@ -32,8 +39,8 @@
 						<div class="col-lg-4">
 							<div class="card" style="width: 350px; height: 200px; border: 1px black solid;">
 								<div class="card-header text-center">
-									<h3>OOO님</h3>
-									<h5>[ WHITE ] 회원이십니다.</h5>
+									<h3>${memberInfo.m_name}님</h3>
+									<h5>[ ${memberInfo.grade} ] 회원이십니다.</h5>
 								</div>
 								<div class="card-body text-center" style="margin: 20px">
 									<h1>
@@ -153,21 +160,25 @@
 					<div class="modal-body">
 						<p class="ptitle">본인확인을 위해 한번 더 비밀번호를 입력해주세요.</p>
 						<br>
-						<form class="form-horizontal" role="form">
+						<form class="form-horizontal" role="form" name="checkFrm" method="post"
+							action="loginCheck.do?state=mypage">
 							<div class="form-group">
 								<label for="id" class="col-xs-2 col-lg-2 control-label">아이디</label>
-								<div class="col-xs-10 col-lg-10">OOOO</div>
+								<div class="col-xs-10 col-lg-10">
+									<input type="text" value="${memberInfo.m_id}" style="border-style: none;" name="m_id"
+										readonly="readonly">
+								</div>
 							</div>
 							<div class="form-group">
 								<label for="pw" class="col-xs-2 col-lg-2 control-label">비밀번호</label>
 								<div class="col-xs-10 col-lg-5">
-									<input type="email" class="form-control">
+									<input type="password" class="form-control" name="m_pw">
 								</div>
 							</div>
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary">확인</button>
+						<button type="button" class="btn btn-secondary" id="idcheck">확인</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</div>

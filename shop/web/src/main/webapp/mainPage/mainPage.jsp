@@ -140,7 +140,7 @@ a:hover {
 						</c:when>
 						<c:otherwise>
 							<ul class="main-menu">
-								<li><a class="text-muted" href="myPage.jsp">MYPAGE</a></li>
+								<li><a class="text-muted" href="/web/myPage.do">MYPAGE</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>
