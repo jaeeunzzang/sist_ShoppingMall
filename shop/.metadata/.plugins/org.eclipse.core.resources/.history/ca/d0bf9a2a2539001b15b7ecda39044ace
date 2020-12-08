@@ -94,7 +94,7 @@
 											src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
 										</th>
 										<td><input id="member_id" name="member_pw" class="inputTypeText" placeholder=""
-											value="" type="text"> (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자)</td>
+											value="${memberInfo.m_pw}" type="text"> (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자)</td>
 									</tr>
 									<tr>
 										<th scope="row">비밀번호확인 <img class="reqImg"
@@ -106,7 +106,7 @@
 									<tr>
 										<th scope="row">주소</th>
 										<td><input id="postcode1" name="postcode1" class="" placeholder=""
-											readonly="readonly" maxlength="14" value="${memberInfo.m_addr}" type="text"> <a href="#none"
+											readonly="readonly" maxlength="14" value="" type="text"> <a href="#none"
 												onclick="" id="postBtn">
 												<img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif" alt="우편번호">
 											</a> <br> <input id="addr1" name="addr1" class="" placeholder="" readonly="readonly"

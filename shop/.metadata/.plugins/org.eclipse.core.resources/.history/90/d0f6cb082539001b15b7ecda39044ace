@@ -23,12 +23,12 @@ public class MemberController {
 	private MemberDao dao;
 
 	@RequestMapping(value = "loginCheck.do")
-	public String loginCheckAction(MemberBean bean, HttpSession session, String state, Model model) {
+	public String loginCheckAction(MemberBean bean, HttpSession session, String state,Model model) {
 		// System.out.println("Controller" + bean);
 //		System.out.println(dao.loginCheck(bean));
 		if (dao.loginCheck(bean)) {
 			if (state.equals("mypage")) {
-				model.addAttribute("memberInfo", dao.memberDetail(bean.getM_id()));
+				model.addAttribute("",dao.memberDetail(bean.getM_id()));
 				return "MemberInfoMod";
 			}
 			// System.out.println(bean.getM_id());
