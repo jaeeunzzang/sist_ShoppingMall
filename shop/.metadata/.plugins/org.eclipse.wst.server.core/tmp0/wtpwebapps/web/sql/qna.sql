@@ -1,6 +1,8 @@
 SELECT * FROM MEMBER;
 INSERT INTO MEMBER VALUES(3,'Admin','관리자','1234','여성',SYSDATE,'SEOUL','010-1234-1234','BLACK',0,0,SYSDATE);
 
+select * from member where m_id='blue';
+
 commit;
 select * from qna;
 

@@ -101,9 +101,7 @@ public class MemberController {
 	@RequestMapping(value = "myPage.do") // 회원 마이페이지액션
 	public String memberMyPageAction(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("id");
-		if(id==null) {
-			return "SignIn2";
-		}
+		System.out.println("id"+id);
 		model.addAttribute("memberInfo", dao.memberDetail(id));
 		return "myPage";
 	}

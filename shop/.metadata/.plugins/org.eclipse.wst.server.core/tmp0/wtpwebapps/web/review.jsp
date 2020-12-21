@@ -45,7 +45,7 @@
 				<br>
 				<br>
 				<br>
-				<h4 align="center">BEST REVIEW</h4>
+				<!-- <h4 align="center">BEST REVIEW</h4>
 				<br>
 				<br>
 				<br>
@@ -114,7 +114,7 @@
 				<br>
 				<br>
 				<br>
-
+ -->
 				<form role="form" class="form-inline pull-right" action="reviewSearch.do" name="searchFrm"
 					method="post">
 					<select class="form-control" name="query">
