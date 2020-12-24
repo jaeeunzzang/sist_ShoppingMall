@@ -25,7 +25,7 @@ public class MemberController {
 	@RequestMapping(value = "loginCheck.do")
 	public String loginCheckAction(MemberBean bean, HttpSession session, String state, Model model) {
 		// System.out.println("Controller" + bean);
-//		System.out.println(dao.loginCheck(bean));
+		// System.out.println(dao.loginCheck(bean));
 		if (dao.loginCheck(bean)) {
 			if (state.equals("mypage")) {
 				model.addAttribute("memberInfo", dao.memberDetail(bean.getM_id()));
@@ -101,7 +101,7 @@ public class MemberController {
 	@RequestMapping(value = "myPage.do") // 회원 마이페이지액션
 	public String memberMyPageAction(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("id");
-		if(id==null) {
+		if (id == null) {
 			return "SignIn2";
 		}
 		model.addAttribute("memberInfo", dao.memberDetail(id));
